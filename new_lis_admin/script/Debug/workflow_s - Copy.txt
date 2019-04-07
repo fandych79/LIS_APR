@@ -1,0 +1,11 @@
+<workflow name="WORKFLOW SERIAL">
+<flow id="FAK" name="Form Applikasi Kredit" sequence="100" score="1000" previous="000" action="ICA" flag="flag" product="KK" ></flow>
+<flow id="BIC" name="BI Checking" sequence="200" score="1000" previous="FAK" action="ICA" flag="flag" product="KK" ></flow>
+<flow id="RATE" name="Rating" sequence="300" score="1000" previous="BIC" action="ICA" flag="flag" product="KK" ></flow>
+<flow id="AKKI" name="Assosiasi KK" sequence="400" score="1000" previous="RATE" action="ICA" flag="flag" product="KK" ></flow>
+<flow id="RPT" name="Reporting" sequence="500" score="1000" previous="AKKI" action="ICA" flag="flag" product="KK" ></flow>
+<flow id="COL" name="Collateral" sequence="600" score="1000" previous="RPT" action="ICA" flag="flag" product="KK" ></flow>
+<flow id="SET" name="Setting Up" sequence="700" score="1000" previous="COL" action="ICA" flag="flag" product="KK" ></flow>
+<flow id="PAY" name="Pay Day" sequence="800" score="1000" previous="SET" action="ICA" flag="flag" product="KK" ></flow>
+<flow id="DRD" name="Drawdown" sequence="900" score="1000" previous="PAY" action="ICA" flag="flag" product="KK" ></flow>
+</workflow>

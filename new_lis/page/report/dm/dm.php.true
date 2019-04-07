@@ -1,0 +1,58 @@
+<?php
+//include ("../../../lib/class.sqlserver.php");
+//require ("../../../requirepage/parameter.php");
+  include ("formatError.php");
+  include ("open_con.php");
+
+$id = $_REQUEST['custnomid'];
+
+
+
+?>
+<html>
+	<head>
+		<script type="text/javascript" src="jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="jquery-ui-1.10.4.custom.js"></script>
+		<link href="jquery-ui-1.8rc3.custom.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body>
+		<h2 align="center">
+		<?
+		echo "Document Management $id";
+		?>
+		</h2>
+		<table cellpadding=5 cellspacing=5 align="center">
+<?
+	$tsql = "SELECT doc_id, doc_file_masking, doc_desc
+	   		    FROM Tbl_Document
+	   		    WHERE doc_id='$id'";
+   	$cursorType = array("Scrollable" => SQLSRV_CURSOR_KEYSET);
+   	$params = array(&$_POST['query']);
+   	$sqlConn = sqlsrv_query($conn, $tsql, $params, $cursorType);
+	
+	if($sqlConn === false)
+	{
+		die(FormatErrors(sqlsrv_errors()));
+	}
+	
+	if(sqlsrv_has_rows($sqlConn))
+	{
+      $rowCount = sqlsrv_num_rows($sqlConn);
+      while( $row = sqlsrv_fetch_array( $sqlConn, SQLSRV_FETCH_NUMERIC))
+      {
+?>
+			<tr>
+				<td width=100% align=left valign=top>
+					  <font face=Arial size=2><b><? echo $row[2] ?></b></font>
+					  <BR>
+					  <img src=/dm/lis/<? echo $row[0] ?>/<? echo $row[1] ?>>
+			  </td>
+			</tr>	
+<?
+      }
+   }
+   sqlsrv_free_stmt( $sqlConn );
+?>
+		</table>
+	</body>
+</html>

@@ -1,0 +1,1 @@
+<?php$url         = "http://10.11.26.15/Megawebservice/LIS-SMA.asmx?WSDL"; $client     = new SoapClient($url, array("trace" => 1, "exception" => 0)); // Create the header //$auth         = new ChannelAdvisorAuth($devKey, $password); $header     = new SoapHeader("http://10.11.26.15/Megawebservice/", "APICredentials", false); ?>

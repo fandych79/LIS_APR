@@ -1,0 +1,46 @@
+<?php
+//include ("../../../lib/class.sqlserver.php");
+//require ("../../../requirepage/parameter.php");
+//  include ("formatError.php");
+  include ("open_con_dm_mysql.php");
+
+$id = $_REQUEST['custnomid'];
+
+
+
+?>
+<html>
+	<head>
+		<script type="text/javascript" src="jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="jquery-ui-1.10.4.custom.js"></script>
+		<link href="jquery-ui-1.8rc3.custom.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body>
+		<h2 align="center">
+		<?
+		echo "Document Management $id";
+		?>
+		</h2>
+		<table cellpadding=5 cellspacing=5 align="center">
+<?
+	  $query = "SELECT doc_storage, doc_file_masking, doc_desc
+	   		      FROM Tbl_Document
+	   		      WHERE doc_index3='$id'";
+	  $result=mysql_query($query);
+	  while($row=mysql_fetch_array($result))
+	  {
+	  	 $imgsrc = $row[0] . "/" . $row[1];
+?>
+			<tr>
+				<td width=100% align=left valign=top>
+					  <font face=Arial size=2><b><? echo $row[2] ?></b></font>
+					  <BR>
+					  <img src=/dm/lis/<? echo $row[0] ?>/<? echo $row[1] ?>>
+			  </td>
+			</tr>	
+<?
+	  }	
+?>
+		</table>
+	</body>
+</html>

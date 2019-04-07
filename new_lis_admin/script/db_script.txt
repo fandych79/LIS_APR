@@ -1,0 +1,959 @@
+CREATE TABLE Tbl_ManageREPORT(tbl_name varchar(50), tbl_desc varchar(50), tbl_urut decimal(8,0))
+INSERT INTO Tbl_ManageREPORT VALUES('Tbl_ManageREPORT','Manage REPORT','999')
+INSERT INTO Tbl_ManageREPORT VALUES('Tbl_ReportMaster','Field Description','100')
+
+create table Tbl_ReportMaster(
+	rep_table varchar(50), rep_field varchar(50),
+	rep_desc varchar(50), rep_linktable varchar(100),
+	primary key (rep_table, rep_field))
+
+create table Tbl_ReportHead(
+	rep_id varchar(50), rep_table varchar(250),
+	rep_colmode varchar(50), rep_flag varchar(10),
+	primary key (rep_id))
+
+CREATE TABLE Tbl_ManageHEAD(tbl_name varchar(50), tbl_desc varchar(50), tbl_urut decimal(8,0))
+INSERT INTO Tbl_ManageHEAD VALUES('Tbl_ManageHEAD','Manage HEAD','999')
+
+
+create table tbl_ZipCodeDet(
+	kode_pos char (50) not null,
+	jenis char(5) not null,
+	alamat char(50) not null,
+	alamat2 char(50) not null,
+	kelurahan char(50) not null,
+	kecamatan char(50) not null,
+	kabupaten char(50) not null,
+	kota char(50) not null
+)
+
+create table tbl_ZipCodeNew(
+	kode_pos varchar(50) not null,
+	kelurahan varchar(50) not null,
+	kecamatan varchar(50) not null,
+	kota varchar(50) not null,
+	kabupaten varchar(50) not null
+)
+
+CREATE TABLE Tbl_KodeRate(
+	[rate_number] [varchar](5) NOT NULL,
+	[rate_currency] [varchar](5) NOT NULL,
+	[rate_current] [decimal](10, 6),
+	[rate_description] [varchar](100),
+	[rate_create_userid] [varchar](20),
+	[rate_create_time] [datetime],
+	[rate_flag] [varchar](5),
+	[rate_active] [varchar](1),
+  PRIMARY KEY 
+(
+	rate_number,
+	rate_currency
+)
+)
+
+CREATE TABLE Tbl_KodeProduk(
+	[produk_loan_type] [varchar](5) NOT NULL,
+	[produk_currency_type] [varchar](5) NOT NULL,
+	[produk_type_description] [varchar](50),
+	[produk_minimum_int_rate] [decimal](10, 6),
+	[produk_maximum_int_rate] [decimal](10, 6),
+	[produk_rate_floor] [decimal](10, 6),
+	[produk_rate_ceiling] [decimal](10, 6),
+	[produk_create_userid] [varchar](20),
+	[produk_create_time] [datetime],
+	[produk_flag] [varchar](5),
+	[produk_active] [varchar](1),
+  PRIMARY KEY (produk_loan_type,produk_currency_type))
+
+CREATE TABLE Tbl_AO(ao_code varchar(20), ao_name varchar(50), 
+   ao_branch_code varchar(5), ao_hp_number varchar(25), ao_nik varchar(10),
+   ao_tl varchar(20), ao_flag varchar(5), ao_active varchar(1), ao_create_userid varchar(20),
+   ao_create_time datetime, primary key(ao_code))
+   
+CREATE TABLE Tbl_Processing(proc_code varchar(5), proc_name varchar(50),
+	proc_create_userid varchar(20), proc_create_time varchar(19), 
+	proc_flag varchar(5), proc_active varchar(1),primary key(proc_code))
+		
+CREATE TABLE Tbl_BusinessType(btype_code varchar(5), btype_name varchar(50),
+	btype_create_userid varchar(20), btype_active varchar(1), 
+	btype_flag varchar(5), btype_create_time datetime,primary key(btype_code))
+
+CREATE TABLE Tbl_Omset(omset_code varchar(5), omset_name varchar(50),
+	omset_flag varchar(5), omset_active varchar(1), omset_create_userid varchar(20),
+	omset_create_time datetime, primary key(omset_code))
+
+CREATE TABLE TblPendidikan(edu_code varchar(5), edu_name varchar(50),
+	edu_flag varchar(5), edu_active varchar(1), edu_create_userid varchar(20),
+	edu_create_time datetime, primary key(edu_code))
+
+CREATE TABLE TblPerkenalan(pk_code varchar(5), pk_name varchar(50),
+	pk_flag varchar(5), pk_active varchar(1), pk_create_userid varchar(20),
+	pk_create_time datetime, primary key(pk_code))
+
+CREATE TABLE TblStatusRumah(status_code varchar(5), status_name varchar(50),
+	status_flag varchar(5), status_active varchar(1), status_create_userid varchar(20),
+	status_create_time datetime, primary key(status_code))
+
+CREATE TABLE TblCreditStatus(status_code varchar(5), status_name varchar(50),
+	status_flag varchar(5), status_active varchar(1), status_create_userid varchar(20),
+	status_create_time datetime, primary key(status_code))
+
+CREATE TABLE TblSkalaPemasaran(skala_code varchar(5), skala_name varchar(50),
+	skala_flag varchar(5), skala_active varchar(1), skala_create_userid varchar(20),
+	skala_create_time datetime, primary key(skala_code))
+
+CREATE TABLE TblTermPayment(term_code varchar(5), term_name varchar(50),
+	term_flag varchar(5), term_active varchar(1), term_create_userid varchar(20),
+	term_create_time datetime, primary key(term_code))
+
+CREATE TABLE Tbl_ZipCode(zip_code varchar(5), zip_kelurahan varchar(50),
+	zip_kecamatan varchar(50), zip_city varchar(50), zip_create_userid varchar(20),
+	zip_create_time datetime, primary key(zip_code))
+
+CREATE TABLE TblLongPayment(payment_code varchar(5), payment_name varchar(50),
+	payment_flag varchar(5), payment_active varchar(1), payment_create_userid varchar(20),
+	payment_create_time datetime, primary key(payment_code))
+
+CREATE TABLE TblJabatan(jabatan_code varchar(5), jabatan_name varchar(50),
+	jabatan_flag varchar(5), payment_active varchar(1), jabatan_create_userid varchar(20),
+	jabatan_create_time datetime, primary key(jabatan_code))
+	
+	
+CREATE TABLE Tbl_BusinessTerm(bterm_code varchar(5), bterm_name varchar(50),
+	bterm_flag VARCHAR(5), bterm_active varchar(1), bterm_create_userid varchar(20),
+	bterm_create_time datetime, primary key(bterm_code))
+	
+CREATE TABLE Tbl_Plafond(plafond_code varchar(5), plafond_name varchar(50),
+	plafond_flag varchar(5), plafond_active varchar(1), plafond_create_userid varchar(20),
+	plafond_create_time datetime, primary key(plafond_code))
+	
+CREATE TABLE Tbl_OwnerRelation(owner_relation_code varchar(5), owner_relation_name varchar(50),
+	owner_relation_flag varchar(5), owner_relation_active varchar(1), owner_relation_create_userid varchar(20),
+	owner_relation_create_time datetime, primary key(owner_relation_code))
+	
+CREATE TABLE Tbl_CreditNeed(credit_need_code varchar(5), credit_need_name varchar(50),
+	credit_need_flag varchar(5), credit_need_active varchar(1), credit_need_create_userid varchar(20),
+	credit_need_create_time datetime, primary key(credit_need_code))
+
+CREATE TABLE Tbl_Currency(curr_code varchar(5), curr_name varchar(50),
+	curr_flag varchar(5), curr_active varchar(1), curr_create_userid varchar(20),
+	curr_create_time datetime, primary key(curr_code))
+
+CREATE TABLE TblLKCDUsaha(usaha_code varchar(5), usaha_name varchar(50),
+	usaha_flag varchar(5), usaha_active varchar(1), usaha_create_userid varchar(20),
+	usaha_create_time datetime, primary key(usaha_code))
+
+CREATE TABLE TblLKCDProduk(produk_code varchar(5), produk_name varchar(50),
+	produk_flag varchar(5), produk_active varchar(1), produk_create_userid varchar(20),
+	produk_create_time datetime, primary key(produk_code))
+
+CREATE TABLE Tbl_CustomerMasterLKCD(lkcdnomid varchar(20), lkcddate varchar(10), lkcdskalapemasaran varchar(10), 
+  lkcdtempatusaha varchar(10), lkcdproduk varchar(10),
+	lkcdbuyername varchar(100), lkcdbuyerpaytermcode varchar(5), lkcdbuyerpaydaylong decimal(4,0),
+	lkcdsuppliername varchar(100), lkcdsupplierpaytermcode varchar(5), lkcdsupplierpaydaylong decimal(4,0),
+  lkcdpendapatanusaha decimal(7,0), lkcdhpp decimal(7,0), lkcdbiayaadm decimal(7,0),
+  lkcdpengeluaranlain decimal(7,0), lkcdpendapatanlain decimal(7,0), lkcdangsuranfasilitas decimal(7,0),
+  lkcdfixedaset decimal(7,0), lkcdpersediaan decimal(7,0), lkcdpiutangusaha decimal(7,0),
+  lkcdhutangusaha decimal(7,0), lkcdperpersediaandaylong decimal(4,0),
+  lkcdinterview1 varchar(250), lkcdinterview2 varchar(250), lkcdinterview3 varchar(250),
+  lkcdinterview4 varchar(250), lkcdinterview5 varchar(250), lkcdinterview6 varchar(250),
+  lkcdinterview7 varchar(250), lkcdinterview8 varchar(250), lkcdinterview9 varchar(250),
+  primary key (lkcdnomid))
+
+CREATE TABLE Tbl_CustomerMasterKeu(custnomid varchar(20), npkasbank decimal(10,0),
+	nppiutang decimal(10,0), nppersediaan decimal(10,0), nppiutanglain decimal(10,0),
+	totaktivalancar decimal(10,0), npaktivatetap decimal(10,0), npaktivalain decimal(10,0), 
+	totaktivatetap decimal(10,0), totalaktiva decimal(10,0), nphutangbank decimal(10,0), nphutangusaha decimal(10,0),
+	nphutangbiaya decimal(10,0), nphutanglain decimal(10,0), totalhutanglancar decimal(10,0),
+	nphutangjkpj decimal(10,0), 
+	totalhutang decimal(10,0), npmodal decimal(10,0), totalpasiva decimal(10,0), 
+	nppenjualan decimal(10,0), nphpp decimal(10,0), totlabakotor decimal(10,0), 
+	npbiaya decimal(10,0), npbiayalain decimal(10,0),totlababeforebunga decimal(10,0), 
+	npbunga decimal(10,0), totlababeforetax decimal(10,0), 
+	asumsi_pembiayaan_modalkerja decimal(10,0), asumsi_pembiayaan_investasi decimal(10,0), 
+	asumsi_proyeksi_saleschange decimal(10,0), asumsi_proyeksi_cogs decimal(10,0),
+	asumsi_proyeksi_sga decimal(10,0), asumsi_proyeksi_bunga decimal(10,0),
+	asumsi_proyeksi_cashsales decimal(10,0), asumsi_proyeksi_aktivatetap decimal(10,0),
+	asumsi_proyeksi_aktivalain decimal(10,0), asumsi_proyeksi_ardoh decimal(10,0),
+	asumsi_proyeksi_invdoh decimal(10,0), asumsi_proyeksi_apdoh decimal(10,0),
+	asumsi_proyeksi_aedoh decimal(10,0),	
+	primary key(custnomid))
+
+CREATE TABLE Tbl_CKPKLegal(docnomid varchar(20), doccode varchar(10),
+	docno varchar(30), docdate varchar(10), doc_flag varchar(1),
+	primary key(docnomid,doccode))
+
+CREATE TABLE Tbl_CKPKAdmin(docnomid varchar(20), doccode varchar(10),
+	docstatus varchar(5), docnotes varchar(100), doc_flag varchar(1),
+	primary key(docnomid,doccode))
+	
+CREATE TABLE Tbl_DocType(doc_code varchar(5), doc_name varchar(100),
+	doc_flag varchar(5), doc_active varchar(1), doc_create_userid varchar(20),
+	doc_create_time datetime, primary key(doc_code))
+	
+CREATE TABLE TblCollateralType(col_code varchar(5), col_name varchar(50),
+	col_flag varchar(5), col_active varchar(1), col_create_userid varchar(20),
+	col_create_time datetime, primary key(col_code))
+	
+CREATE TABLE TblCollateralStatus(cstatus_code varchar(5), cstatus_col_type varchar(5), cstatus_name varchar(50),
+	cstatus_flag varchar(5), cstatus_active varchar(1), cstatus_create_userid varchar(20),
+	cstatus_create_time datetime, primary key(cstatus_code,cstatus_col_type))
+	
+CREATE TABLE TblFinancialType(financial_code varchar(5), financial_name varchar(50),
+	financial_flag varchar(5), financial_active varchar(1), financial_create_userid varchar(20),
+	financial_create_time datetime, primary key(financial_code))
+	
+CREATE TABLE TblBIStatus(bistatus_code varchar(5), bistatus_name varchar(50),
+	bistatus_flag varchar(5), bistatus_active varchar(1), bistatus_create_userid varchar(20),
+	bistatus_create_time datetime, primary key(bistatus_code))
+	
+CREATE TABLE TblAppraisalStatus(appstatus_code varchar(5), appstatus_name varchar(50),
+	appstatus_flag varchar(5), appstatus_active varchar(1), appstatus_create_userid varchar(20),
+	appstatus_create_time datetime, primary key(appstatus_code))
+	
+CREATE TABLE TblAppraisalResponse(response_code varchar(5), response_name varchar(50),
+	response_flag varchar(5), response_active varchar(1), response_create_userid varchar(20),
+	response_create_time datetime, primary key(response_code))
+	
+CREATE TABLE TblLegalStatus(legalstatus_code varchar(5), legalstatus_name varchar(50),
+	legalstatus_flag varchar(5), legalstatus_active varchar(1), legalstatus_create_userid varchar(20),
+	legalstatus_create_time datetime, primary key(legalstatus_code))
+	
+CREATE TABLE TblLegalOpinion(opinion_code varchar(5), opinion_name varchar(50),
+	opinion_flag varchar(5), opinion_active varchar(1), opinion_create_userid varchar(20),
+	opinion_create_time datetime, primary key(opinion_code))
+
+CREATE TABLE Tbl_History_Pass(user_id varchar(20), user_curr_pwd varchar(20), 
+  user_last_pwd1 varchar(20), user_last_pwd2 varchar(20), user_last_pwd3 varchar(20),
+primary key(user_id))
+	
+CREATE TABLE Tbl_SE_User(user_id varchar(20), user_name varchar(50), user_status varchar(1),
+	user_level_code varchar(5), user_key_number varchar(20), user_profile_code varchar(20),
+	user_proc_code varchar(5), user_branch_code varchar(5), user_email varchar(50),
+	user_pwd varchar(20), user_signin varchar(1), user_signin_time varchar(19), user_flag varchar(5),
+	status_create_time varchar(19), user_active varchar(1),  user_limit_money decimal(16,0),
+	user_picture varchar(100), user_ao_code varchar(10), primary key(user_id))
+	
+CREATE TABLE Tbl_SE_Level(level_code varchar(5), level_name varchar(50), primary key(level_code))
+
+CREATE TABLE Tbl_SE_Profile(profile_code varchar(5), profile_name varchar(50), profile_program_code varchar(200),
+	primary key(profile_code))
+
+CREATE TABLE Tbl_DocAdmin(doc_id varchar(10), doc_name varchar(100),
+	doc_create_userid varchar(20), doc_active varchar(1),
+	doc_flag varchar(5), doc_create_time datetime,  primary key(doc_id))
+
+CREATE TABLE Tbl_DocPerson(doc_id varchar(10), doc_name varchar(100),
+	doc_create_userid varchar(20), doc_create_time datetime, 
+	doc_flag varchar(5), doc_active varchar(1), primary key(doc_id))
+
+CREATE TABLE Tbl_DocCol(doc_id varchar(10), doc_name varchar(100), doc_col_type varchar(10),
+	doc_create_userid varchar(20), doc_create_time datetime, 
+	doc_flag varchar(5), doc_active varchar(1), primary key(doc_id, doc_col_type))
+
+CREATE TABLE Tbl_FTAR(txn_id varchar(20), txn_action varchar(10),
+	txn_time datetime, txn_user_id varchar(30),
+	txn_notes varchar(50))
+
+CREATE TABLE Tbl_FNOM(txn_id varchar(20), txn_action varchar(10),
+	txn_time datetime, txn_user_id varchar(30), txn_notes varchar(50), 
+	txn_branch_code  varchar(10), txn_region_code varchar(10))
+
+CREATE TABLE Tbl_FPRO(txn_id varchar(20), txn_action varchar(10),
+	txn_time datetime, txn_user_id varchar(30),
+	txn_notes varchar(50))
+
+CREATE TABLE Tbl_FINI(txn_id varchar(20), txn_action varchar(10),
+	txn_time datetime, txn_user_id varchar(30),
+	txn_notes varchar(50))
+
+CREATE TABLE Tbl_FCOL(txn_id varchar(20), txn_action varchar(10),
+	txn_time datetime, txn_user_id varchar(30),
+	txn_notes varchar(50))
+
+CREATE TABLE Tbl_FINP(txn_id varchar(20), txn_action varchar(10),
+	txn_time datetime, txn_user_id varchar(30),
+	txn_notes varchar(50))
+
+CREATE TABLE Tbl_FIK1(txn_id varchar(20), txn_action varchar(10),
+	txn_time datetime, txn_user_id varchar(30),
+	txn_notes varchar(50))
+
+CREATE TABLE Tbl_FBIC(txn_id varchar(20), txn_action varchar(10),
+	txn_time datetime, txn_user_id varchar(30),
+	txn_notes varchar(50))
+
+CREATE TABLE Tbl_FDOC(txn_id varchar(20), txn_action varchar(10),
+	txn_time datetime, txn_user_id varchar(30),
+	txn_notes varchar(50))
+
+CREATE TABLE Tbl_FINC(txn_id varchar(20), txn_action varchar(10),
+	txn_time datetime, txn_user_id varchar(30),
+	txn_notes varchar(50))
+
+CREATE TABLE Tbl_FAPR(txn_id varchar(20), txn_action varchar(10),
+	txn_time datetime, txn_user_id varchar(30),
+	txn_notes varchar(50))
+
+CREATE TABLE Tbl_FCPR(txn_id varchar(20), txn_action varchar(10),
+	txn_time datetime, txn_user_id varchar(30),
+	txn_notes varchar(50))
+
+CREATE TABLE Tbl_FIK2(txn_id varchar(20), txn_action varchar(10),
+	txn_time datetime, txn_user_id varchar(30),
+	txn_notes varchar(50))
+
+CREATE TABLE Tbl_FCAP(txn_id varchar(20), txn_action varchar(10),
+	txn_time datetime, txn_user_id varchar(30),
+	txn_notes varchar(50))
+
+CREATE TABLE Tbl_FGON(txn_id varchar(20), txn_action varchar(10),
+	txn_time datetime, txn_user_id varchar(30),
+	txn_notes varchar(50))
+
+CREATE TABLE Tbl_FLEG(txn_id varchar(20), txn_action varchar(10),
+	txn_time datetime, txn_user_id varchar(30),
+	txn_notes varchar(50))
+
+CREATE TABLE Tbl_FCLG(txn_id varchar(20), txn_action varchar(10),
+	txn_time datetime, txn_user_id varchar(30),
+	txn_notes varchar(50))
+
+CREATE TABLE Tbl_FCSG(txn_id varchar(20), txn_action varchar(10),
+	txn_time datetime, txn_user_id varchar(30),
+	txn_notes varchar(50))
+
+CREATE TABLE Tbl_FCAD(txn_id varchar(20), txn_action varchar(10),
+	txn_time datetime, txn_user_id varchar(30),
+	txn_notes varchar(50))
+
+CREATE TABLE Tbl_FDRW(txn_id varchar(20), txn_action varchar(10),
+	txn_time datetime, txn_user_id varchar(30),
+	txn_notes varchar(50))
+
+CREATE TABLE Tbl_Txn_History(txn_id varchar(20), txn_action varchar(10),
+	txn_time datetime, txn_user_id varchar(30),
+	txn_notes varchar(50), txn_flow varchar(10),
+	txn_branch_code  varchar(10), txn_region_code varchar(10))
+
+CREATE TABLE Tbl_Workflow(wf_id varchar(10), wf_name varchar(50), wf_urut decimal(6,0),
+		wf_time decimal(6,0), wf_score decimal(6,0), wf_action varchar(10),
+		wf_proc_code varchar(50), wf_flag varchar(50), primary key(wf_id))
+
+CREATE TABLE Tbl_WorkflowDoc(wf_id varchar(10), wf_doc varchar(200))
+
+CREATE TABLE Tbl_PrevFlow(Flow varchar(10), Prev varchar(100))
+	
+CREATE TABLE Tbl_SE_Program(program_code varchar(5), program_name varchar(50), program_version varchar(10),
+	program_group varchar(5), program_urut decimal(6,0), program_desc varchar(100), program_helpdoc varchar(30),
+	program_flag varchar(5), Program_active varchar(1), program_create_userid varchar(20), program_create_time datetime,
+	program_time decimal(6,0), program_score decimal(6,0), program_action varchar(10),
+	 primary key(program_code))
+
+INSERT INTO Tbl_SE_Program values('101','Maintain User','1.0.0','100','10','Maintain User','help','bbbbb','Y','admin','2011-09-09 12:00:00','0','0','')
+INSERT INTO Tbl_SE_Program values('201','Maintain Tabel','1.0.0','200','10','Maintain User','help','bbbbb','Y','admin','2011-09-09 12:00:00','0','0','')
+INSERT INTO Tbl_SE_Program values('401','Daily Report','1.0.0','400','10','Maintain User','help','bbbbb','Y','admin','2011-09-09 12:00:00','0','0','')
+INSERT INTO Tbl_SE_Program values('402','Persentase','1.0.0','400','10','Maintain User','help','bbbbb','Y','admin','2011-09-09 12:00:00','0','0','')
+	
+CREATE TABLE Tbl_SE_GrpProgram(grp_code varchar(5), grp_name varchar(50), grp_urut decimal(6,0),
+	grp_flag varchar(5), grp_active varchar(1), grp_create_userid varchar(20), 
+	grp_create_time datetime, primary key(grp_code))
+
+INSERT INTO Tbl_SE_GrpProgram values('100','SECURITY','100','bbbbb','Y','admin','2011-09-09 12:00:00')
+INSERT INTO Tbl_SE_GrpProgram values('200','TABEL','200','bbbbb','Y','admin','2011-09-09 12:00:00')
+INSERT INTO Tbl_SE_GrpProgram values('WRK','WORKFLOW','300','bbbbb','Y','admin','2011-09-09 12:00:00')
+INSERT INTO Tbl_SE_GrpProgram values('400','REPORT','400','bbbbb','Y','admin','2011-09-09 12:00:00')
+
+CREATE TABLE Tbl_SE_UserProgram(user_id varchar(20), program_code varchar(5), user_permissions varchar(50),
+	 primary key(user_id, program_code))
+	
+CREATE TABLE Tbl_SE_UserProgram(User_id varchar(20), Program_code varchar(5), User_permissions varchar(50),
+	Program_proc_code varchar(10), Program_branch_code varchar(10), primary key(User_id))
+	
+CREATE TABLE Tbl_SE_UserLog(log_user_id varchar(20), log_datetime datetime, log_workstation varchar(50),
+	log_program_code varchar(5), primary key(log_user_id))
+
+CREATE TABLE Tbl_RSSFeeds(rss_id varchar(10), rss_urut decimal(6,0), rss_title varchar(50),
+			rss_pubdate varchar(20), rss_desc text, rss_link varchar(200))
+
+CREATE TABLE Tbl_Targeting(tarid varchar(20), tarproccode varchar(10), taraocode varchar(10), 
+  tarbranchcode varchar(10), tarbustype varchar(10), tarinitiator varchar(10), 
+  tarzipcode varchar(20), tarlocation varchar(30), tarcount decimal(3), tarcondition varchar(30),
+  tarhp varchar(30), tarflag varchar(1)) 
+
+create table Tbl_Col_AlatBerat(
+	ap_lisregno varchar(20), 
+	col_id varchar(30),
+	col_addr1 varchar(50),
+	col_addr2 varchar(50),
+	col_addr3 varchar(50),
+	col_invoiceno varchar(50),
+	col_alattype varchar(50),
+	col_jumlah decimal(4,0),
+	col_spec varchar(16),
+	col_merk varchar(10),
+	col_typemerk varchar(30),
+	col_serial varchar(30),
+	col_thnpembuatan decimal(4,0),
+	col_nilaiwajar decimal(8,0),
+	col_nilailikuidasi decimal (8,0),
+	col_nacode varchar(10),
+	col_safemargin decimal(8,0), 
+	primary key (ap_lisregno, col_id))
+
+	
+create table Tbl_Col_Building(
+	ap_lisregno varchar(20), 
+	col_id varchar(30),
+	col_addr1 varchar(50),
+	col_addr2 varchar(50),
+	col_addr3 varchar(50),
+	col_type varchar(10),
+	col_imbno varchar(50),
+	col_imbdate varchar(10),
+	col_imbluas decimal(8,0),
+	col_njopyear decimal(4,0),
+	col_njopval decimal(8,0),
+	col_rangka varchar(10),
+	col_lantai varchar(10),
+	col_dinding varchar(10),
+	col_langit varchar(10),
+	col_rangkaatap varchar(10),
+	col_jmllantai varchar(10),
+	col_pembagianruang varchar(100),
+	col_dihunioleh varchar(10),
+	col_fasilitasbld varchar(100),
+	col_desc varchar(250),
+	col_pencapaian varchar(250),
+	col_jalan varchar(10),
+	col_lebarjalan decimal(4,0),
+	col_kondisijalan varchar(10),
+	col_arahjalan varchar(10),
+	col_intensitasjalan varchar(10),
+	col_fasilitasumum varchar(250),
+	col_fasilitasangkutan varchar(250),
+	col_objekpenting varchar(250),
+	col_peruntukanlingkungan varchar(10), 
+	primary key (ap_lisregno, col_id))
+	
+	
+create table Tbl_Col_Land(
+	ap_lisregno varchar(20), 
+	col_id varchar(30),
+	col_addr1 varchar(50),
+	col_addr2 varchar(50),
+	col_addr3 varchar(50),
+	col_relcode varchar(10),
+	col_haktanggungan varchar(50),
+	col_haktanggungantgl varchar(8),
+	col_identification varchar(10),
+	col_topografi varchar(10),
+	col_bentuktanah varchar(10),
+	col_panjangtanah decimal(8,0),
+	col_lebartanah decimal(8,0),
+	col_arahdepan varchar(10),
+	col_arahbelakang varchar(10),
+	col_arahkanan varchar(10),
+	col_arahkiri varchar(10),
+	col_batasdepan varchar(10),
+	col_batasbelakang varchar(10),
+	col_bataskanan varchar(10),
+	col_bataskiri varchar(10),
+	col_banjir varchar(10),
+	col_njopyear decimal(4,0),
+	col_njopval decimal(8,0),
+	col_remark varchar(250), 
+	primary key (ap_lisregno, col_id))
+	
+	
+create table Tbl_Col_Machine(
+	ap_lisregno varchar(20), 
+	col_id varchar(30),
+	col_addr1 varchar(50),
+	col_addr2 varchar(50),
+	col_addr3 varchar(50),
+	col_invoiceno varchar(50),
+	col_mcntype varchar(10),
+	col_jumlah decimal(4,0),
+	col_spec varchar(16),
+	col_merk varchar(10),
+	col_typemerk varchar(30),
+	col_serial varchar(30),
+	col_thnpembuatan decimal(4,0),
+	col_nilaiwajar decimal(8,0),
+	col_nilailikuidasi decimal (8,0),
+	col_nacode varchar(10),
+	col_safemargin decimal(8,0), 
+	primary key (ap_lisregno, col_id))
+	
+	
+create table Tbl_Col_Ship(
+	ap_lisregno varchar(20), 
+	col_id varchar(30),
+	col_name varchar(50),
+	col_type varchar(10),
+	col_class varchar(50),
+	col_weight decimal(8,0),
+	col_thnpembuatan decimal(4,0),
+	col_pembuat varchar(50),
+	col_size decimal (8,0),
+	col_condition varchar(10),
+	col_suino varchar(50),
+	col_sippomno varchar(50),
+	col_sktrkbno varchar(50),
+	col_hargawajar decimal(8,0),
+	col_hargalikuidasi decimal(8,0),
+	col_hargawajarindo decimal(8,0),
+	col_safemargin decimal(8,0),
+	col_remark varchar(250), 
+	primary key (ap_lisregno, col_id))
+
+	
+create table Tbl_Col_Vehicle(
+	ap_lisregno varchar(20), 
+	col_id varchar(30),
+	col_addr1 varchar(50),
+	col_addr2 varchar(50),
+	col_addr3 varchar(50),
+	col_nopol varchar(10),
+	col_stnk_no varchar(30),
+	col_stnkexp varchar(10),
+	col_fakturno varchar(30),
+	col_fakturtgl varchar(10),
+	col_bpkbno varchar(30),
+	col_bpkbtgl varchar(10),
+	col_condition varchar(10),
+	col_type varchar(10),
+	col_model varchar(10),
+	col_jeniskendaraan varchar(10),
+	col_silinder decimal(4,0),
+	col_warna varchar(50),
+	col_norangka varchar(30),
+	col_nomesin varchar(30),
+	col_bpkbnama varchar(30),
+	col_bpkbaddr1 varchar(50),
+	col_bpkbaddr2 varchar(50),
+	col_bpkbaddr3 varchar(50),
+	col_perlengkapan varchar(50),
+	col_desc varchar(16),
+	col_nilaiwajar decimal (8,0),
+	col_nilailikuidasi decimal (8,0),
+	col_safemargin decimal (8,0), 
+	primary key (ap_lisregno, col_id))
+	
+	
+create table Tbl_Col_Insurance(
+	col_id varchar(30),
+	ins_company varchar(100),
+	ins_pergantungantype varchar(10),	
+	ins_polisno varchar(50),
+	ins_polistgl varchar(8),
+	ins_jatuhtempo varchar(8),
+	ins_nilaipertanggungan varchar(8),
+	primary key (col_id))
+	
+	
+create table Tbl_Col_Picture(
+	col_id varchar(30),
+	pic_link varchar(250),
+	pic_desc varchar(250),
+	primary key (col_id))
+
+
+create table Tbl_Col_AlatBerat(
+	ap_lisregno varchar(20), 
+	col_id varchar(30),
+	col_addr1 varchar(50),
+	col_addr2 varchar(50),
+	col_addr3 varchar(50),
+	col_invoiceno varchar(50),
+	col_alattype varchar(50),
+	col_jumlah decimal(4,0),
+	col_spec varchar(16),
+	col_merk varchar(10),
+	col_typemerk varchar(30),
+	col_serial varchar(30),
+	col_thnpembuatan decimal(4,0),
+	col_nilaiwajar decimal(8,0),
+	col_nilailikuidasi decimal (8,0),
+	col_nacode varchar(10),
+	col_safemargin decimal(8,0), 
+	primary key (ap_lisregno, col_id))
+
+	
+	
+create table Tbl_Col_Land(
+	ap_lisregno varchar(20), 
+	col_id varchar(30),
+	col_addr1 varchar(50),
+	col_addr2 varchar(50),
+	col_addr3 varchar(50),
+	col_relcode varchar(10),
+	col_haktanggungan varchar(50),
+	col_haktanggungantgl varchar(8),
+	col_identification varchar(10),
+	col_topografi varchar(10),
+	col_bentuktanah varchar(10),
+	col_panjangtanah decimal(8,0),
+	col_lebartanah decimal(8,0),
+	col_arahdepan varchar(10),
+	col_arahbelakang varchar(10),
+	col_arahkanan varchar(10),
+	col_arahkiri varchar(10),
+	col_batasdepan varchar(10),
+	col_batasbelakang varchar(10),
+	col_bataskanan varchar(10),
+	col_bataskiri varchar(10),
+	col_banjir varchar(10),
+	col_njopyear decimal(4,0),
+	col_njopval decimal(8,0),
+	col_remark varchar(250), 
+	primary key (ap_lisregno, col_id))
+	
+	
+create table Tbl_Col_Machine(
+	ap_lisregno varchar(20), 
+	col_id varchar(30),
+	col_addr1 varchar(50),
+	col_addr2 varchar(50),
+	col_addr3 varchar(50),
+	col_invoiceno varchar(50),
+	col_mcntype varchar(10),
+	col_jumlah decimal(4,0),
+	col_spec varchar(16),
+	col_merk varchar(10),
+	col_typemerk varchar(30),
+	col_serial varchar(30),
+	col_thnpembuatan decimal(4,0),
+	col_nilaiwajar decimal(8,0),
+	col_nilailikuidasi decimal (8,0),
+	col_nacode varchar(10),
+	col_safemargin decimal(8,0), 
+	primary key (ap_lisregno, col_id))
+	
+	
+create table Tbl_Col_Ship(
+	ap_lisregno varchar(20), 
+	col_id varchar(30),
+	col_name varchar(50),
+	col_type varchar(10),
+	col_class varchar(50),
+	col_weight decimal(8,0),
+	col_thnpembuatan decimal(4,0),
+	col_pembuat varchar(50),
+	col_size decimal (8,0),
+	col_condition varchar(10),
+	col_suino varchar(50),
+	col_sippomno varchar(50),
+	col_sktrkbno varchar(50),
+	col_hargawajar decimal(8,0),
+	col_hargalikuidasi decimal(8,0),
+	col_hargawajarindo decimal(8,0),
+	col_safemargin decimal(8,0),
+	col_remark varchar(250), 
+	primary key (ap_lisregno, col_id))
+
+	
+create table Tbl_Col_Vehicle(
+	ap_lisregno varchar(20), 
+	col_id varchar(30),
+	col_addr1 varchar(50),
+	col_addr2 varchar(50),
+	col_addr3 varchar(50),
+	col_nopol varchar(10),
+	col_stnk_no varchar(30),
+	col_stnkexp varchar(8),
+	col_fakturno varchar(30),
+	col_fakturtgl varchar(8),
+	col_bkpbno varchar(30),
+	col_bpkbtgl varchar(8),
+	col_condition varchar(10),
+	col_type varchar(10),
+	col_model varchar(10),
+	col_jeniskendaraan varchar(10),
+	col_silinder decimal(4,0),
+	col_warna varchar(50),
+	col_norangka varchar(30),
+	col_nomesin varchar(30),
+	col_bpkbnama varchar(30),
+	col_bpkbaddr1 varchar(50),
+	col_bpkbaddr2 varchar(50),
+	col_bpkbaddr3 varchar(50),
+	col_perlengkapan varchar(50),
+	col_desc varchar(16),
+	col_nilaiwajar decimal (8,0),
+	col_nilailikuidasi decimal (8,0),
+	col_safemargin decimal (8,0), 
+	primary key (ap_lisregno, col_id))
+	
+	
+create table Tbl_Col_Insurance(
+	col_id varchar(30),
+	ins_company varchar(100),
+	ins_pergantungantype varchar(10),	
+	ins_polisno varchar(50),
+	ins_polistgl varchar(8),
+	ins_jatuhtempo varchar(8),
+	ins_nilaipertanggungan varchar(8),
+	primary key (col_id))
+	
+	
+create table Tbl_Col_Picture(
+	col_id varchar(30),
+	pic_link varchar(250),
+	pic_desc varchar(250),
+	primary key (col_id))
+	
+	
+create table Tbl_Cust_MasterCol(
+	ap_lisregno varchar(20),
+	cust_jeniscol varchar(50))
+
+
+CREATE TABLE Tbl_CustomerMasterDoc(docnomid varchar(20), docdate varchar(19), docfilename varchar(50), 
+  primary key(docnomid))
+
+CREATE TABLE Tbl_CustomerListDoc(custnomid varchar(20), docperson text, 
+  primary key(custnomid))
+
+
+CREATE TABLE Tbl_CustomerMasterTradeCheck(tcnomid varchar(20), tcdate varchar(10), 
+  tcsupp1date varchar(10), tcsupp1position varchar(10), tcsupp1name varchar(30),
+  tcsupp1telp varchar(20), tcsupp1addr varchar(100), tcsupp1relationmonthlong decimal(2,0),
+  tcsupp1jenisbarang varchar(30), tcsupp1penjualanpermonth decimal(7,0), tcsupp1longpaycode varchar(5),
+  tcsupp1payhabbit varchar(1), tcsupp1info varchar(1), tcsupp1notes varchar(30),
+  tcsupp2date varchar(10), tcsupp2position varchar(10), tcsupp2name varchar(30),
+  tcsupp2telp varchar(20), tcsupp2addr varchar(100), tcsupp2relationmonthlong decimal(2,0),
+  tcsupp2jenisbarang varchar(30), tcsupp2penjualanpermonth decimal(7,0), tcsupp2longpaycode varchar(5),
+  tcsupp2payhabbit varchar(1), tcsupp2info varchar(1), tcsupp2notes varchar(30),
+  tcbuyer1date varchar(10), tcbuyer1position varchar(10), tcbuyer1name varchar(30),
+  tcbuyer1telp varchar(20), tcbuyer1addr varchar(100), tcbuyer1relationmonthlong decimal(2,0),
+  tcbuyer1jenisbarang varchar(30), tcbuyer1pembelianpermonth decimal(7,0), tcbuyer1longpaycode varchar(5),
+  tcbuyer1character varchar(1), tcbuyer1info varchar(1), tcbuyer1notes varchar(30),
+  tcbuyer2date varchar(10), tcbuyer2position varchar(10), tcbuyer2name varchar(30),
+  tcbuyer2telp varchar(20), tcbuyer2addr varchar(100), tcbuyer2relationmonthlong decimal(2,0),
+  tcbuyer2jenisbarang varchar(30), tcbuyer2pembelianpermonth decimal(7,0), tcbuyer2longpaycode varchar(5),
+  tcbuyer2character varchar(1), tcbuyer2info varchar(1), tcbuyer2notes varchar(30),
+  tcother1date varchar(10), tcother1name varchar(30), tcother1relationship varchar(30),
+  tcother1telp varchar(20), tcother1addr varchar(100), tcother1relationmonthlong decimal(2,0),
+  tcother1character varchar(1), tcother1info varchar(1), tcother1notes varchar(30),
+  tcother2date varchar(10), tcother2name varchar(30), tcother2relationship varchar(30),
+  tcother2telp varchar(20), tcother2addr varchar(100), tcother2relationmonthlong decimal(2,0),
+  tcother2character varchar(1), tcother2info varchar(1), tcother2notes varchar(30),
+  tcnotes varchar(250), tcresume varchar(1),
+  primary key (tcnomid))
+
+CREATE TABLE Tbl_CustomerMasterAspekUsaha(aspeknomid varchar(20), aspekdate varchar(10), 
+  aspekmanajemennotes1 varchar(250), aspekmanajemennotes2 varchar(250), aspekmanajemennotes3 varchar(250),
+  aspekmanajemennotes4 varchar(250), aspekmanajemennotes5 varchar(250), aspekmanajemennotes6 varchar(250),
+  aspekproduksinotes1 varchar(250), aspekproduksinotes2 varchar(250), aspekproduksinotes3 varchar(250),
+  aspekproduksinotes4 varchar(250), aspekproduksinotes5 varchar(250), aspekproduksinotes6 varchar(250),
+  aspekperbankannotes1 varchar(250), aspekperbankannotes2 varchar(250), aspekperbankannotes3 varchar(250),
+  aspekperbankannotes4 varchar(250), aspekperbankannotes5 varchar(250), aspekperbankannotes6 varchar(250),
+  aspekresikosupplyrisk varchar(1), aspekresikodemandrisk varchar(1), 
+  aspekresikocompetitorrisk varchar(1), aspekresikoother varchar(1), aspekresikonotes varchar(250),
+  primary key (aspeknomid))
+
+CREATE TABLE Tbl_CustomerMasterAnalisaKeu(analisanomid varchar(20), analisadate varchar(10), 
+  analisamutasidebet1 decimal(10,0), analisamutasikredit1 decimal(10,0), analisapenjualan1 decimal(10,0),
+  analisamutasidebet2 decimal(10,0), analisamutasikredit2 decimal(10,0), analisapenjualan2 decimal(10,0),
+  analisamutasidebet3 decimal(10,0), analisamutasikredit3 decimal(10,0), analisapenjualan3 decimal(10,0),
+  analisaprofitabilitynotes1 varchar(250), analisaprofitabilitynotes2 varchar(250), analisaprofitabilitynotes3 varchar(250),
+  analisaprofitabilitynotes4 varchar(250), analisaprofitabilitynotes5 varchar(250), analisaprofitabilitynotes6 varchar(250),
+  analisaefficiencynotes1 varchar(250), analisaefficiencynotes2 varchar(250), analisaefficiencynotes3 varchar(250),
+  analisaefficiencynotes4 varchar(250), analisaefficiencynotes5 varchar(250), analisaefficiencynotes6 varchar(250),
+  analisalikuiditasnotes1 varchar(250), analisalikuiditasnotes2 varchar(250), analisalikuiditasnotes3 varchar(250),
+  analisalikuiditasnotes4 varchar(250), analisalikuiditasnotes5 varchar(250), analisalikuiditasnotes6 varchar(250),
+  primary key (analisanomid))
+
+CREATE TABLE Tbl_CustomerMKK(mkknomid varchar(20), mkkdate varchar(10), 
+  mkkexistingoutstanding1 decimal(10,0), mkkexistingbungaflag1 decimal(10,0), 
+  mkkexistingprovisi1 decimal(10,0), mkkexistingkewajibanbank1 decimal(10,0),
+  mkkexistingoutstanding2 decimal(10,0), mkkexistingbungaflag2 decimal(10,0), 
+  mkkexistingprovisi2 decimal(10,0), mkkexistingkewajibanbank2 decimal(10,0),
+  mkknewbungaflag1 decimal(10,0), mkknewadm1 decimal(10,0),
+  mkknewprovisi1 decimal(10,0), mkknewkewajibanbank1 decimal(10,0),
+  mkknewbungaflag2 decimal(10,0), mkknewadm2 decimal(10,0),
+  mkknewprovisi2 decimal(10,0), mkknewkewajibanbank2 decimal(10,0),
+  primary key (mkknomid))
+	
+CREATE TABLE Tbl_Region(region_code varchar(5), region_name varchar(50), 
+	region_flag varchar(5), region_active varchar(1), region_create_userid varchar(20),
+	region_email_addr varchar(50),
+	region_create_time datetime, primary key(region_code))
+	
+CREATE TABLE Tbl_Branch(branch_code varchar(5), branch_name varchar(50),
+	branch_region_code varchar(5), branch_address varchar(250), branch_city varchar(100), 
+	branch_postal_code varchar(10), branch_create_userid varchar(20), branch_create_time datetime,
+	branch_flag varchar(5), branch_active varchar(1), branch_chart varchar(100),
+	branch_budget decimal(18,0), branch_flag_bi varchar(5),
+	branch_flag_apr varchar(5), branch_flag_leg varchar(5),
+	branch_flag_dd varchar(5),
+	primary key(branch_code))
+
+CREATE TABLE Tbl_Notary(notary_code varchar(5), notary_name varchar(50), 
+	notary_email_addr varchar(50), notary_region varchar(200), notary_flag varchar(5), 
+	notary_active varchar(1), notary_create_userid varchar(20),	
+	notary_create_time datetime, primary key(notary_code))
+
+CREATE TABLE Tbl_CustomerMasterPerson(custnomid varchar(20), custtarid varchar(20), custaplno char(20), 
+  custapldate varchar(10), custaocode varchar(20), custbranchcode varchar(5), custlkcdno varchar(20), 
+  custproccode varchar(5), custcurcode varchar(5), custplafond decimal(15,0),
+  custfullname varchar(50), custshortname varchar(20), custsex varchar(1), custjabatancode varchar(2),
+  custktpno varchar(20), custktpexp varchar(10), custboddate varchar(10), custbodplace varchar(20),
+  custnpwpno varchar(20), custmothername varchar(50), custeducode varchar(5), custmarcode varchar(1), 
+  custmarname varchar(50), custjmltanggungan varchar(2),
+  custaddr varchar(100), custrt varchar(4), custrw varchar(4), custkel varchar(30),
+  custkec varchar(30), custcity varchar(30), custprop varchar(30), custzipcode varchar(5),
+  custtelp varchar(30), custhp varchar(30), custfax varchar(20), custhomestatus varchar(5), 
+  custhomeyearlong varchar(3), custhomemonthlong varchar(3),
+  custaddrktp varchar(100), custrtktp varchar(4), custrwktp varchar(4), custkelktp varchar(30),
+  custkecktp varchar(30), custcityktp varchar(30), custpropktp varchar(30), custzipcodektp varchar(5),
+  custbustype varchar(5), custbusname varchar(50), custbusaddr varchar(100), 
+  custbustelp varchar(30), custbusfax varchar(20), custbushp varchar(20), 
+  custbusaktano varchar(20), custbusaktadate varchar(10), custbusnpwp varchar(20), custbussiup varchar(20),
+  custbustdp varchar(20), custbusyearlong varchar(3), custbusmonthlong varchar(3), custcreditstatus varchar(5),
+  custcreditneed1 varchar(5), custcredittype1 varchar(5),
+  custcreditplafond1 decimal(15,0), custcreditlong1 decimal(6,0),
+  custcreditneed2 varchar(5), custcredittype2 varchar(5),
+  custcreditplafond2 decimal(15,0), custcreditlong2 decimal(6,0), custprointerviewnotes varchar(20),
+  custowner1jabatancode varchar(2), custowner1name varchar(40), custowner1saham varchar(6),
+  custowner1lamagabung varchar(2), custowner1ktp varchar(20), custowner1npwp varchar(20),
+  custowner2jabatancode varchar(2), custowner2name varchar(40), custowner2saham varchar(6),
+  custowner2lamagabung varchar(2), custowner2ktp varchar(20), custowner2npwp varchar(20),
+  custowner3jabatancode varchar(2), custowner3name varchar(40), custowner3saham varchar(6),
+  custowner3lamagabung varchar(2), custowner3ktp varchar(20), custowner3npwp varchar(20),
+  custnomobfacility varchar(2), custnomomsetcode varchar(5), custnomlamausahacode varchar(5),
+  custnomplafondcode varchar(5), custnomcreditfu varchar(1), custnomnotes varchar(30), 
+  custnomfrom varchar(10), custnomperkenalan varchar(5),
+  custprostsusahacode varchar(5), custprostskredit varchar(5),
+  custprointerview varchar(1), custpropendapatan varchar(5), custprodate varchar(10),
+  flag varchar(20),
+  primary key(custnomid))
+
+CREATE TABLE Tbl_CustomerFlag(custnomid varchar(20), custflagbi varchar(1), 
+	custflagapr varchar(1), custflaghost varchar(1),
+	primary key(custnomid))
+
+INSERT INTO Tbl_SE_GrpProgram values('300','Marketing Tools','300','bbbbb','Y','admin','2011-09-09 12:00:00')
+INSERT INTO Tbl_SE_Program values('301','Targeting','1.0.0','300','10','Targeting','help','bbbbb','Y','admin','2011-09-09 12:00:00','0','0','')
+
+CREATE TABLE [dbo].[tbl_COL_Land](
+	[ap_lisregno] [varchar](20) NULL,
+	[col_id] [varchar](30) NULL,
+	[col_addr1] [varchar](50) NULL,
+	[col_addr2] [varchar](50) NULL,
+	[col_addr3] [varchar](50) NULL,
+	[col_kodepos] [varchar](5) NULL,
+	[col_certtype] [varchar](50) NULL,
+	[col_certno] [varchar](50) NULL,
+	[col_certatasnama] [varchar](50) NULL,
+	[col_certluas] [decimal](8, 0) NULL,
+	[col_certdate] [varchar] (10) NULL,
+	[col_certdue] [varchar] (10) NULL,
+	[col_relcode] [varchar](10) NULL,
+	[col_haktanggungan] [varchar](50) NULL,
+	[col_haktanggungantgl] [varchar] (10) NULL,
+	[col_identification] [varchar](10) NULL,
+	[col_topografi] [varchar](10) NULL,
+	[col_bentuktanah] [varchar](10) NULL,
+	[col_panjangtnh] [varchar](8) NULL,
+	[col_lebartnh] [varchar](8) NULL,
+	[col_arahdepan] [varchar](10) NULL,
+	[col_arahbelakang] [varchar](10) NULL,
+	[col_arahkanan] [varchar](10) NULL,
+	[col_arahkiri] [varchar](10) NULL,
+	[col_batasdepan] [varchar](10) NULL,
+	[col_batasbelakang] [varchar](10) NULL,
+	[col_bataskanan] [varchar](10) NULL,
+	[col_bataskiri] [varchar](10) NULL,
+	[col_banjir] [varchar](10) NULL,
+	[col_njopyear] [decimal](4, 0) NULL,
+	[col_njopval] [decimal](8, 0) NULL,
+	[col_remark] [varchar](250) NULL,
+	[col_safemargin] [varchar](8) NULL,
+	[col_appraiser] [varchar](50) NULL,
+	[col_appraisdate] [varchar] (10) NULL
+) ON [PRIMARY]
+
+CREATE TABLE [dbo].[tbl_COL_Building](
+	[ap_lisregno] [varchar](20) NULL,
+	[col_id] [varchar](30) NULL,
+	[col_addr1] [varchar](50) NULL,
+	[col_addr2] [varchar](50) NULL,
+	[col_addr3] [varchar](50) NULL,
+	[col_kodepos] [varchar](5) NULL,
+	[col_type] [varchar](10) NULL,
+	[col_imbno] [varchar](50) NULL,
+	[col_imbdate] [varchar] (10) NULL,
+	[col_imbluas] [varchar](8) NULL,
+	[col_njopyear] [decimal](4, 0) NULL,
+	[col_njopval] [decimal](8, 0) NULL,
+	[col_rangka] [varchar](10) NULL,
+	[col_lantai] [varchar](10) NULL,
+	[col_dinding] [varchar](10) NULL,
+	[col_langit] [varchar](10) NULL,
+	[col_rangkaatap] [varchar](10) NULL,
+	[col_jmllantai] [varchar](10) NULL,
+	[col_pembagianruang] [varchar](100) NULL,
+	[col_dihunioleh] [varchar](10) NULL,
+	[col_fasilitasbld] [varchar](100) NULL,
+	[col_desc] [varchar](250) NULL,
+	[col_pencapaian] [varchar](250) NULL,
+	[col_jalan] [varchar](10) NULL,
+	[col_lebarjalan] [varchar](4) NULL,
+	[col_kondisijalan] [varchar](10) NULL,
+	[col_arahjalan] [varchar](10) NULL,
+	[col_intensitasjalan] [varchar](10) NULL,
+	[col_fasilitasumum] [varchar](250) NULL,
+	[col_fasilitasangkutan] [varchar](250) NULL,
+	[col_objekpenting] [varchar](250) NULL,
+	[col_peruntukanlingkungan] [varchar](10) NULL,
+	[col_safemargin] [varchar](8) NULL,
+	[col_appraiser] [varchar](50) NULL,
+	[col_appraisdate] [varchar] (10) NULL
+) ON [PRIMARY]
+
+CREATE TABLE [dbo].[tbl_COL_Vehicle](
+	[ap_lisregno] [varchar](20) NULL,
+	[col_id] [varchar](30) NULL,
+	[col_addr1] [varchar](50) NULL,
+	[col_addr2] [varchar](50) NULL,
+	[col_addr3] [varchar](50) NULL,
+	[col_kodepos] [varchar](5) NULL,
+	[col_nopol] [varchar](10) NULL,
+	[col_stnk_no] [varchar](30) NULL,
+	[col_stnkexp] [varchar] (10) NULL,
+	[col_fakturno] [varchar](30) NULL,
+	[col_fakturtgl] [varchar] (10) NULL,
+	[col_bpkbno] [varchar](30) NULL,
+	[col_bpkbtgl] [varchar] (10) NULL,
+	[col_condition] [varchar](10) NULL,
+	[col_type] [varchar](10) NULL,
+	[col_model] [varchar](10) NULL,
+	[col_merk] [varchar](10) NULL,
+	[col_tahunpembuatan] [varchar](4) NULL,
+	[col_jeniskendaran] [varchar](10) NULL,
+	[col_silinder] [varchar](4) NULL,
+	[col_warna] [varchar](50) NULL,
+	[col_norangka] [varchar](30) NULL,
+	[col_nomesin] [varchar](30) NULL,
+	[col_bpkbnama] [varchar](30) NULL,
+	[col_bpkbaddr1] [varchar](50) NULL,
+	[col_bpkbaddr2] [varchar](50) NULL,
+	[col_bpkbaddr3] [varchar](50) NULL,
+	[col_perlengkapan] [varchar](50) NULL,
+	[col_desc] [varchar](16) NULL,
+	[col_nilaiwajar] [decimal](8, 0) NULL,
+	[col_nilailikuidasi] [decimal](8, 0) NULL,
+	[col_safemargin] [varchar](8) NULL,
+	[col_appraiser] [varchar](50) NULL,
+	[col_appraisdate] [varchar] (10) NULL
+) ON [PRIMARY]
+
+
+CustomerMasterPerson.flag :
+01 = BI CHecking = Y = udah tulis textfile
+02 = Appraisal =  Y
+
+	Harus mkdir subfolder RSSFeeds

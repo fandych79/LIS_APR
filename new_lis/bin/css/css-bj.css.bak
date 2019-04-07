@@ -1,0 +1,95 @@
+/* CSS Document */
+
+body { 
+  background-color:rgb(244,241,222);
+  /*background-image: url(bin/img/bg.png);*/
+  background-repeat: repeat;
+  font-family: verdana;
+  font-size: 14px;
+} 
+
+#page {width: 800px; margin: 0px auto; padding: 0px; border: 1px rgb(37,50,115) solid;}
+
+#page #header { height: 100px; margin: 0px; padding: 0px; border: 0px rgb(37,50,115) solid; background-color:rgb(66,163,237) ;}    
+#page #header #header-logo { float: left; height: 100px; width: 248px;  border: 0px black solid;}
+#page #header #header-logo a {display: block; text-align: left; margin: 10px auto; }   
+#page #header #header-banner {float: right; width:548px; height: 100px; border-right: 3px rgb(37,50,115) solid; color: rgb(41,50,109);}  
+#page #header #header-banner p {display: block; text-align: center; margin: 40px auto; border-bottom: 3px rgb(37,50,115) solid;
+      font-size:16px;
+}
+
+#page #menu {clear:both; height: 30px; border-bottom: 3px solid rgb(65,65,65); background-color:rgb(66,163,237); 
+      border-right: 3px solid rgb(65,65,65); border-top: 1px solid rgb(65,65,65);
+}
+#menu ul {list-style: none; margin: 0px; padding: 0px;}                              
+#menu ul li {float: left; color: white;}
+#menu ul li a {
+  display: block; color: white; background: #414141;
+  text-decoration: none; font-weight: bold; 
+  height: 13px; padding : 10px 10px;  
+  border-right: 1px solid #8F8F8F; float: left; 
+}                                         
+#menu ul li a.selected {background-color: #E46D63;  }                                                                                  
+#menu ul li a:hover {background-color: rgb(66,163,237); }
+#menu ul li ul {
+  display: none; list-style: none; margin: 0px; padding: 0px; 
+  position: absolute; top: 190px; width: 150px;
+  clear: both; border : 1px solid #cccccc; 
+  border-top : 0px; 
+}
+#menu ul li ul li {float: none;}
+#menu ul li ul li a {float: none; background-color: #414141; border-bottom: 1px solid #d4d4d4; color: #FFFFFF; font-weight: normal;  }
+#menu ul li ul li a:hover { background-color: #f9f9f9; color: #E46D63; font-weight: bold; }
+
+#table-data {
+  font-family: verdana;
+  font-size: 13px;
+  border-spacing: 0px;
+  width: 100%;
+  border-collapse: collapse;
+  border-top:1px;
+  border-left:1px;
+  /* border-collapse: separate; */
+}
+
+#do-content-form {
+  margin: 0px auto;
+  width: 800px;
+  text-align: left;
+  overflow: auto;
+}
+
+#do-content {
+  margin: 0px auto;
+  width: 800px;
+  text-align: left;
+  overflow: auto;
+}
+
+.label {
+  width:100px;
+  text-align: left;
+}
+
+.td-header{
+  text-align: center;
+  font-weight: bold;
+  background-color: rgb(255,215,0);
+}
+
+#link a:hover {background-color: rgb(148,199,82); text-decoration:none;}
+#link a:link {text-decoration:none;}
+#link a:active {text-decoration:none;}
+
+#footer{
+  text-align: center;
+  background-color:rgb(66,163,237);
+  margin-bottom: 0px;
+  width: 797px;
+  height: 25px;
+  padding-top: 10px;
+  border-bottom: 3px solid rgb(65,65,65);
+  border-left: 3px solid rgb(65,65,65);
+  font-family: verdana;
+  font-size: 11px;
+}

@@ -1,0 +1,225 @@
+body,div,table,input,textarea,td
+{
+font-family: Verdana, Geneva, sans-serif;
+font-size: 11px;
+}
+
+body {
+  margin: 10px auto;
+  text-align: center;
+}
+
+#content{
+  margin: 10px auto;
+  width: 900px;
+  height: 100%;
+  border: 1px ;
+}
+
+#contentFormAnalyst{
+  margin: 10px auto;
+  width: 80%;
+  height: 100%;
+  border: 1px ; 
+}
+
+#contentPreviewAll{
+  margin: 0px auto;
+  width: 90%;
+  height: 100%;
+  border: 1px ; 
+}
+
+#content2{
+  margin: 10px auto;
+  width: 900px;
+  height: 100%;
+  border: 1px ;
+}
+
+#content-doc{
+  margin: 10px auto;
+  width: 900px;
+  height: 100%;
+  border: 1px ;
+}
+
+#table-form {
+	font-family: Verdana, Geneva, sans-serif;
+  font-size: 11px;
+  border-spacing: 0px;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#table-form td{
+  vertical-align:top ;
+}
+
+.titikDua {
+	text-align: center;
+}
+
+#table-data {
+  font-family: verdana;
+  font-size: 11px;
+  border-spacing: 0px;
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  border-color:rgb(240,240,240);
+}
+
+.table-data2 {
+  font-family: verdana;
+  font-size: 11px;
+  border-spacing: 0px;
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table-data3 {
+  font-family: verdana;
+  font-size: 11px;
+  border-spacing: 0px;
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.ttdSmall{
+  border: 1px rgb(0,0,0) solid;
+  height: 70px;
+  width: 180px;
+  text-align: left;
+}
+
+.ttd{
+  border: 1px rgb(0,0,0) solid;
+  height: 100px;
+  width: 180px;
+  text-align: left;
+  margin-right: 0px;
+}
+
+.ttdPemohon{
+  border: 1px rgb(0,0,0) solid;
+  height: 120px;
+  width: 80%;
+  text-align: left;
+}
+
+.ttd .p1{
+  text-align: center;
+  margin-top: 0px;
+}
+
+.ttd .p2{
+  text-align: left;
+  margin: 40px auto;
+}
+
+.ttdSmall .p3{
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+.ttdSmall .ttdALL{
+  text-align: center;
+  margin-top: 0px;
+}
+
+.tbl-hp{
+  width:600px;
+  font-family: verdana;
+  font-size: 11px;
+}
+
+.select-item {
+  width: 100%;
+}
+
+.odd {background-color:rgb(138,191,212) padding:3px;}
+.even {background-color:rgb(153,201,219);padding:3px;} 
+
+.tdField{
+  text-align: right;
+  border: 0px solid black;
+  background-color: rgb(211,233,255);
+  vertical-align:middle;
+}
+
+.tdInputText{
+  border: 0px black solid;
+}
+/*
+.tdInputText select, input{
+  border: 1px black solid;
+  border-spacing: 1px;
+  height: 100%;
+  width: 96%;
+  background-color: cyan;
+  padding-left: 2px;
+}
+*/
+.tdInputTextJoin input{
+  border: 1px black solid;
+  border-spacing: 1px;
+  height: 100%;
+  width: 44%;
+  background-color: cyan;
+}
+
+.tdInputTextJoin select{
+  border: 1px black solid;
+  border-spacing: 1px;
+  height: 100%;
+  width: 44%;
+  background-color: cyan;
+}
+
+.tdInputText textarea{
+  border: 1px black solid;
+  border-spacing: 1px;
+  height: 100%;
+  width: 94%;
+  background-color: cyan;
+  overflow-x: auto; 
+}
+
+.preview{
+  width: 80%;
+  text-align: center;
+  background-color:#E9EDEC ;
+}
+
+.linkMenu a{ 
+  display: block;  color: white;
+  background: #414141;
+  text-decoration: none; font-weight: bold; 
+  height: 16px; padding : 4px 8px;  
+  border-right: 1px solid #8F8F8F;
+  float: left;
+  margin-right: 2px;
+}
+
+.linkMenu input{ 
+  display: block;  color: white;
+  background: #414141;
+  text-decoration: none; font-weight: bold; 
+  height: 25px; padding : 4px 8px;  
+  border-right: 1px solid #8F8F8F;
+  float: left;
+  margin-right: 2px;
+}
+.linkMenu button:hover {background-color: rgb(118,193,254);}
+
+.linkMenu a:hover {background-color: rgb(118,193,254);}
+.linkMenu a.selected {background-color: #E46D63;}
+.linkMenu a.visited {color: rgb(211,233,255);}
+.linkMenu a.selected {background-color: rgb(5,142,25);} 
+
+/* Ganjil dan Genap #fefefe*/
+.odd {background-color:rgb(233,237,236); padding:3px;}
+.even {background-color:#FAFDEC;padding:3px;} 

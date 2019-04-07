@@ -1,0 +1,140 @@
+/* CSS Document */
+
+body { 
+  background-color:rgb(255,255,255);
+  /*background-image: url(bin/img/bg.png);*/
+  background-repeat: repeat;
+  font-family: verdana;
+  font-size: 14px;
+  margin: 0;
+  padding:0;
+} 
+
+#page {margin: 0px; padding: 0px;}
+
+#page #header { margin: 0px; padding: 0px; border: 0px rgb(37,50,115) solid; background-color:rgb(66,163,237) ;}    
+#page #header #header-logo { float: left;}
+#page #header #header-logo a {display: block; text-align: left; margin: 0px auto;}   
+#page #header #header-banner {float: right; width:548px; height: 100px; border-right: 3px rgb(37,50,115) solid; color: rgb(41,50,109);}  
+#page #header #header-banner p {display: block; text-align: center; margin: 40px auto; border-bottom: 3px rgb(37,50,115) solid;
+      font-size:16px;
+}
+
+#page #menu {clear:both; height: 30px; width:100%; border-bottom: 3px solid rgb(65,65,65); background-color:rgb(66,163,237); 
+      border-right: 3px solid rgb(65,65,65); border-top: 1px solid rgb(65,65,65);
+}
+#menu ul {list-style: none; margin: 0px; padding: 0px;}                              
+#menu ul li {float: left; color: white;}
+#menu ul li a {
+  display: block; color: white; background: #414141;
+  text-decoration: none; font-weight: bold; 
+  height: 13px; padding : 10px 10px;  
+  border-right: 1px solid #8F8F8F; float: left; 
+}                                         
+#menu ul li a.selected {background-color: #E46D63;  }                                                                                  
+#menu ul li a:hover {background-color: rgb(66,163,237); }
+#menu ul li ul {
+  display: none; list-style: none; margin: 0px; padding: 0px; 
+  position: absolute; top: 190px; width: 150px;
+  clear: both; border : 1px solid #cccccc; 
+  border-top : 0px; 
+}
+#menu ul li ul li {float: none;}
+#menu ul li ul li a {float: none; background-color: #414141; border-bottom: 1px solid #d4d4d4; color: #FFFFFF; font-weight: normal;  }
+#menu ul li ul li a:hover { background-color: #f9f9f9; color: #E46D63; font-weight: bold; }
+
+#table-data {
+  font-family: verdana;
+  font-size: 13px;
+  border-spacing: 0px;
+  width: 100%;
+  border-collapse: collapse;
+  border-top:1px;
+  border-left:1px;
+  /* border-collapse: separate; */
+}
+
+fieldset{
+  border-radius: 10px;
+  width: 300px;
+  margin: 100px auto;
+}
+
+#do-content-form {
+  margin: 0px auto;
+  width: 100%;
+  min-height:400px;
+  text-align: left;
+  overflow: auto;
+}
+
+#do-content {
+  margin: 0px auto;
+  width: 800px;
+  text-align: left;
+  overflow: auto;
+}
+
+.label {
+  width:100px;
+  text-align: left;
+}
+
+.td-header{
+  text-align: center;
+  font-weight: bold;
+  background-color: rgb(255,215,0);
+}
+
+#link a:hover {background-color: rgb(148,199,82); text-decoration:none;}
+#link a:link {text-decoration:none;}
+#link a:active {text-decoration:none;}
+
+#footer{
+  text-align: center;
+  background-color:#00b300;
+  margin-bottom: 0px;
+  width: 100%;
+  height: 25px;
+  padding-top: 10px;
+  border-bottom: 3px solid rgb(65,65,65);
+  border-left: 3px solid rgb(65,65,65);
+  font-family: verdana;
+  font-size: 11px;
+}
+
+.blue
+{
+	background:#09F;
+	border: 2px solid #03F;
+	color:#FFF;
+	font-weight:bold;
+	cursor:pointer;
+}
+
+.red
+{
+	background:#F30;
+	border: 2px solid #F00;
+	color:#FFF;
+	font-weight:bold;
+	cursor:pointer;
+}
+
+.orange
+{
+	background:orange;
+	border: 2px solid #F60;
+	color:#FFF;
+	font-weight:bold;
+	cursor:pointer;
+}
+
+.green
+{
+	background:#4AA02C;
+	border: 2px solid #254117;
+	color:#FFF;
+	font-weight:bold;
+	cursor:pointer;
+}

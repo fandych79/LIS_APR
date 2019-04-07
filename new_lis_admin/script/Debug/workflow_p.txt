@@ -1,0 +1,30 @@
+<workflow name="Workflow">
+<flow id="START" name="START FLOW" sequence="100" score="100" previous="000" action="I" flag="NCNNN" product="A"></flow>
+<flow id="FAK" name="FORM APPLIKASI" sequence="200" score="100" previous="START" action="ICA" flag="YCNIN" product="A"></flow>
+<flow id="BIC" name="BI CHECKING" sequence="300" score="100" previous="FAK" action="ICA" flag="NCNNBIC" product="A"></flow>
+<flow id="BIR" name="BI RESPONSE" sequence="500" score="100" previous="FAK|BIC" action="ICA" flag="NCNN" product="A"></flow>
+<flow id="BIRS" name="BI RESULT" sequence="550" score="100" previous="BIR" action="ICA" flag="NCNNN" product="A"></flow>
+<flow id="COL" name="COLLATERAL" sequence="600" score="100" previous="FAK" action="ICA" flag="NCNNN" product="A"></flow>
+<flow id="APR" name="APPRAISAL" sequence="700" score="100" previous="COL" action="ICA" flag="NCNNN" product="A"></flow>
+<flow id="LKCD" name="LAPORAN KUNJUNGAN" sequence="800" score="121" previous="FAK" action="ICA" flag="NCNNN" product="A"></flow>
+<flow id="VID" name="VID" sequence="900" score="120" previous="LKCD" action="I" flag="NCNN4" product="A"></flow>
+<flow id="VKK" name="VKK" sequence="1000" score="120" previous="VID" action="I" flag="NCNN4" product="A"></flow>
+<flow id="HACD" name="HACD" sequence="1100" score="120" previous="VKK" action="I" flag="NCNN4" product="A"></flow>
+<flow id="NRL" name="NERACA RUGI LABA" sequence="1200" score="120" previous="HACD" action="I" flag="NCNN4" product="A"></flow>
+<flow id="MKK" name="M. KEPUTUSAN KREDIT" sequence="1300" score="120" previous="NRL" action="IA" flag="NCNN4" product="A"></flow>
+<flow id="BRV" name="BRANCH REVIEW" sequence="1350" score="120" previous="MKK" action="ICA" flag="NCNIN" product="A"></flow>
+<flow id="CRV" name="CREDIT REVIEW" sequence="1400" score="120" previous="BRV" action="ICA" flag="NCNI2" product="A"></flow>
+<flow id="CAP" name="CREDIT APPROVAL" sequence="1450" score="120" previous="MKK" action="IA" flag="NCNI5" product="A"></flow>
+<flow id="SPPK" name="SPPK" sequence="1500" score="120" previous="CAP" action="ICA" flag="NCNNN" product="A"></flow>
+<flow id="LDOC" name="LEGAL DOCUMENT" sequence="1600" score="120" previous="SPPK" action="ICA" flag="NCNN2" product="A"></flow>
+<flow id="LYUR" name="LEGAL YURIDIS" sequence="1650" score="120" previous="LDOC" action="ICA" flag="NCNI2" product="A"></flow>
+<flow id="LNOT" name="LEGAL NOTARY" sequence="1700" score="120" previous="LDOC" action="I" flag="NCNI2" product="A"></flow>
+<flow id="LSPK" name="PENGIKATAN KREDIT" sequence="1800" score="120" previous="LNOT" action="ICA" flag="NCNN2" product="A"></flow>
+<flow id="LCHK" name="CHECKLIST LEGAL" sequence="1900" score="120" previous="LSPK" action="ICA" flag="NCNN2" product="A"></flow>
+<flow id="MPK" name="MEMO PENCAIRAN" sequence="1950" score="120" previous="LCHK" action="ICA" flag="NCNNN" product="A"></flow>
+<flow id="CKPK" name="ACCEPTANCE" sequence="2000" score="120" previous="MPK" action="ICA" flag="NCNN3" product="A"></flow>
+<flow id="RATE" name="VARIANCE RATE" sequence="2100" score="120" previous="CKPK" action="ICA" flag="NCNNN" product="A"></flow>
+<flow id="LOVE" name="LOAN VERIFICATION" sequence="2200" score="120" previous="RATE" action="ICA" flag="NCNN3" product="A"></flow>
+<flow id="LOOP" name="LOAN OPERATION" sequence="2300" score="120" previous="LOVE" action="ICA" flag="NCNN3" product="A"></flow>
+<flow id="JUNK" name="JUNK FLOW" sequence="99999" score="0" previous="" action="ICA" flag="NCNIN" product="A"></flow>
+</workflow>

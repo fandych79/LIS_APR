@@ -1,0 +1,476 @@
+* {
+	margin:0;
+	padding:0;
+}
+body {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#404040;
+	background:#fff;
+}
+img {border:0;}
+#container {padding:20px;
+	-webkit-box-shadow:rgba(0,0,0,.2) 0px 0px 5px;
+	-moz-box-shadow:rgba(0,0,0,.2) 0px 0px 5px;
+	box-shadow:rgba(0,0,0,.2) 0px 0px 5px;}
+
+input, textarea {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#404040;
+}
+label {
+	color:#999;
+	cursor:pointer;
+	padding-left:2px;
+	line-height:16px;
+}
+label.chosen {color:#333;}
+
+/*Transparent items*/
+.outtaHere {
+	position:absolute;
+	left:-3000px;
+}
+
+/*Radio buttons*/
+.radioArea, .radioAreaChecked {
+	display:block;
+	float:left;
+	clear:left;
+	width:15px;
+	height:14px;
+	font-size:0;
+	cursor:pointer;
+}
+.radioArea {background:url(../Images/radio.gif) no-repeat left top;}
+.radioAreaChecked {background:url(../Images/radio.gif) no-repeat left bottom;}
+
+/*Checkboxes*/
+.checkboxArea, .checkboxAreaChecked {
+	display:block;
+	float:left;
+	clear:left;
+	width:13px;
+	height:13px;
+	font-size:0;
+	padding:0;
+	margin:0;
+	cursor:pointer;
+}
+.checkboxArea {background:url(../Images/checkbox.gif) no-repeat left top;}
+.checkboxAreaChecked {background:url(../Images/checkbox.gif) no-repeat left bottom;}
+.focused {border:1px dotted #ddd;}
+
+/*Text inputs*/
+.textinput, .textinputHovered {
+	height:15px;
+	background:url(../Images/input_bg.gif) repeat-x left top;
+	border:none;
+	padding:4px 0;
+	vertical-align:middle;
+}
+.textinputHovered {background-position:left bottom;}
+.inputCorner {
+	padding-bottom:0;
+	vertical-align:middle;
+}
+
+/*Text areas*/
+.txtarea .tr, .txtarea .tr_xon {background:url(../Images/txtarea_tr.gif) no-repeat top right;}
+.txtarea .tr_xon {background:url(../Images/txtarea_tr_xon.gif) no-repeat top right;}
+.txtarea img.txt_corner {
+	width:5px;
+	height:5px;
+	display:block;
+}
+.txtarea .br, .txtarea .br_xon {background:url(../Images/txtarea_br.gif) no-repeat top right;}
+.txtarea .br_xon {background:url(../Images/txtarea_br_xon.gif) no-repeat top right;}
+.txtarea .cntr {background:url(../Images/txtarea_cntr.gif) repeat-y right top;}
+.txtarea .cntr_xon {background:url(../Images/txtarea_cntr_xon.gif) repeat-y right top;}
+.txtarea .cntr_l, .txtarea .cntr_l_xon {
+	width:5px;
+	background:url(../Images/txtarea_l.gif) repeat-y left top;
+	float:left;
+}
+.txtarea .cntr_l_xon {background:url(../Images/txtarea_l_xon.gif) repeat-y left top;}
+.txtarea textarea {
+	border:0;
+	background:none;
+	padding:0;
+	margin:5px;
+}
+
+/*Selects*/
+.selectArea {
+	width:200px;
+	height:21px;
+	background:url(../Images/select_bg.gif) repeat-x left top;
+}
+.selectArea .left {
+	width:8px;
+	height:21px;
+	float:left;
+	background:url(../Images/select_left.gif) no-repeat left top;
+}
+.selectArea .right {
+	width:21px;
+	height:21px;
+	float:right;
+	background:url(../Images/select_right.gif) no-repeat left top;
+}
+.selectArea .right a {
+	display:block;
+	width:200px;
+	height:21px;
+	margin-left:-179px;
+	position:absolute;
+}
+.selectArea .right i {display:none;}
+.selectArea .center {
+	width:160px;
+	color:#FFF;
+	padding-top:3px;
+	overflow:hidden;
+	white-space:nowrap;
+}
+
+/*Selects drop-down*/
+.optionsDivInvisible, .optionsDivVisible {
+	position:absolute;
+	margin-top:-1px;
+	margin-left:3px;
+	width:172px;
+	background:#6f7074;
+	padding:2px;
+	font-size:11px;
+	z-index:20;
+}
+.optionsDivInvisible {display:none;}
+.optionsDivVisible {display:block;}
+.optionsDivVisible p {
+	margin:0;
+	padding:0;
+}
+.optionsDivVisible a {
+	color:#F2F2F2;
+	text-decoration:none;
+	display:block;
+	padding:1px 4px;
+	border:1px solid #6f7074;
+}
+.optionsDivVisible a:hover {
+	color:#FFF;
+	background:#5F6062;
+	border-color:#cfd0d6;
+}
+
+/*Button*/
+.buttonSubmit, .buttonSubmitHovered {
+	width:auto;
+	height:26px;
+	color:#FFF;
+	font-weight:bold;
+	padding:2px;
+	background:url(../Images/button_bg.gif) repeat-x left top;
+	cursor:pointer;
+	border:none;
+}
+.buttonSubmitHovered {background-position:left bottom;}
+.buttonImg {vertical-align:bottom;}
+
+.ContainerWrapper
+{
+	background-color: #B8CFEE; 
+	border-left:1px solid #A5B5C6; 
+	border-right:1px solid #A5B5C6; 
+	border-top: 1px solid #A5B5C6; 
+	border-bottom:1px solid #A5B5C6;
+}
+/*Gap between wrapper and container*/
+.ContainerMargin
+{
+	padding: 4px;
+}
+/*Container*/
+.Container
+{
+	border: 1px solid #99BBE8;
+	background-color: White;
+}
+/*Header of each container*/
+.ContainerHeader
+{
+	background-image: url(../Images/Container_Header.gif);
+	height: 23px;
+	font-size: 12px;
+	font-weight: bold;
+	color: #133047;
+}
+
+/*Margin of Header of each container*/
+.ContainerHeader td
+{
+	padding: 4px;
+}
+
+.ContainerRow
+{
+	list-style-type: none;
+	cursor: move;
+	margin: 2px 2px 0px 0px;
+	border: 1px solid #000;
+	text-align: center;
+	padding-top: 5px;
+	background-color: #becfe6;
+	background-image: url(../Images/Grid_RowNormal.gif);
+}
+
+/*-------------------------------*/
+/*Messages Status supported classes*/
+/*-------------------------------*/
+/*General class for Message*/
+#tblMessage
+{
+	height: 23px;
+	width: 100%;
+}
+/*Message for Successful*/
+.MessageSuccess
+{
+	border: solid 1px #5AAD0D;
+	background-color: #E5F7D5;
+}
+/*Message for Information*/
+.MessageInformation
+{
+	border: solid 1px #88B5E9;
+	background-color: #E2EDF8;
+}
+/*Message for Warning*/
+.MessageWarning
+{
+	border: solid 1px #FD7B04;
+	background-color: #FFF7E7;
+}
+/*Message for Error*/
+.MessageError
+{
+	border: solid 1px #FF0001;
+	background-color: #FFEAEA;
+}
+
+/*-------------------------------*/
+/*Messages Status Icon supported classes*/
+/*-------------------------------*/
+/*General class for Message Icon*/
+#dvIcon
+{
+	line-height: 23px;
+	background-repeat: no-repeat;
+	background-position: 2px 2px;
+	padding-left: 38px;
+}
+/*Message Icon for Successful*/
+#dvIcon.Success
+{
+	background-image: url('images/Message_Success.png');
+}
+/*Message Icon for Information*/
+#dvIcon.Information
+{
+	background-image: url('images/Message_Information.png');
+}
+/*Message Icon for Warning*/
+#dvIcon.Warning
+{
+	background-image: url('images/Message_Warning.png');
+}
+/*Message Icon for Error*/
+#dvIcon.Error
+{
+	background-image: url('images/Message_Error.png');
+}
+
+/*-------------------------------*/
+/*Progressbar supported classes*/
+/*-------------------------------*/
+/*Progressbar container wrapper*/
+#dvProgressContainer
+{
+	border-left: solid 1px #CFCFCF;
+	border-right: solid 1px #CFCFCF;
+	width: 300px;
+	height: 12px;
+	background-image: url(../Images/Progressbar_Wrapper.gif);
+}
+/*Progressbar container*/
+#dvProgress
+{
+	background-image: url(../Images/Progressbar_Content.gif);
+	height: 100%;
+	width: 0px;
+}
+
+/*-------------------------------*/
+/*Grid supported classes*/
+/*-------------------------------*/
+/*Grid Header Row*/
+.GridHeader
+{
+	background-image: url(../Images/Grid_Header.gif);
+	height: 25px;
+}
+/*Grid Header row separator */
+.GridHeader td.Separator
+{
+	border-right: solid 1px #C9CACA;
+	padding: 0px 2px 0px 2px;
+}
+/*Grid row height for empty, normal, selected and hovered */
+.GridRow, .GridEmptyRow, .GridNumberRow, .GridNormalRow, .GridAlternate, .GridHoverRow
+{
+	height: 20px;
+}
+/*Grid Empty row */
+.GridEmptyRow
+{
+	vertical-align: middle;
+	text-align: center;
+	color: Gray;
+}
+/*Grid Numbered row */
+.GridNumberRow
+{
+	background-image: url(../Images/Grid_RowNumber.gif);
+}
+/*Grid Normal row */
+.GridNormalRow
+{
+	background-image: url(../Images/Grid_RowNormal.gif);
+}
+/*Grid Alternate row */
+.GridAlternate
+{
+	background-image: url(../Images/Grid_RowAlternate.gif);
+}
+/*Grid Hover row */
+.GridHoverRow
+{
+	background-image: url(../Images/Grid_RowHover.gif);
+}
+/*Grid Footer row*/
+.GridFooter
+{
+	background-image: url(../Images/Grid_Footer.gif);
+	height: 25px;
+}
+/*Grid Footer row left and right margin*/
+.GridFooter td
+{
+	padding: 0px 3px 0px 3px;
+}
+.StartUpload
+{
+	/* for IE */
+	filter:alpha(opacity=20);
+	/* CSS3 standard */
+	opacity:0.2;
+}
+.boxesTable {
+    list-style-type: none;
+	margin: 2px 2px 0px 0px;
+	height: 23px;
+	border: 0px solid #000;
+	text-align: center;
+	padding-top: 5px;
+	background-image: url(../Images/Container_Header.gif);
+}
+
+.boxesTableAlternate
+{
+	list-style-type: none;
+	margin: 2px 2px 0px 0px;
+	height: 23px;
+	border: 0px solid #000;
+	text-align: center;
+	padding-top: 5px;
+	background-image: url(../Images/Grid_RowAlternate.gif);
+}
+
+.boxesLi {
+    list-style-type: none;
+	cursor: move;
+	margin: 2px 2px 0px 0px;
+	border: 1px solid #000;
+	text-align: center;
+	padding-top: 5px;
+	background-image: url(../Images/Grid_RowNormal.gif);
+}
+
+.TdPolosGanjil
+{
+	border-top: gainsboro 1px solid; 
+	width:20%;
+	height:30px;
+}
+
+.TdPolosGenap
+{
+	border-top: gainsboro 1px solid; 
+	width:79%;
+	height:30px;
+}
+
+.TdGanjil
+{
+	border: gainsboro 1px solid; 
+	height:30px;
+	background-color: #FFFFFF;
+}
+
+.TdGenap
+{
+	border: gainsboro 1px solid; 
+	height:30px;
+	background-color: #F5F5F5;
+}
+
+.TdLabel
+{
+	height:15px;
+}
+
+.TdComponent
+{
+	border-top: gainsboro 1px solid; 
+	height:30px;
+}
+
+.TdPolos
+{
+	width:1%;
+	height:30px;
+}
+
+.VesselAvaible
+{
+	border-top: gainsboro 1px solid; 
+	border-bottom: gainsboro 1px solid; 
+	border-left: gainsboro 1px solid; 
+	border-right: gainsboro 1px solid; 
+	background-color:Green;
+	width:100px;
+	height:100px;
+}
+
+.VesselBooking
+{
+	border-top: gainsboro 1px solid; 
+	border-bottom: gainsboro 1px solid; 
+	border-left: gainsboro 1px solid; 
+	border-right: gainsboro 1px solid; 
+	background-color:Red;
+	width:100px;
+	height:100px;
+}

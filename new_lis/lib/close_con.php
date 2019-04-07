@@ -1,0 +1,4 @@
+<?
+sqlsrv_close( $conn );
+
+?> 

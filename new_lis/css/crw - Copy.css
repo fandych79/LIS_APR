@@ -1,0 +1,115 @@
+html,table,body,tr,td,div,input,textarea
+{
+	font-family:"Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+	font-size:12px;
+}
+
+.button{
+	background-color:#F5F5F5;
+	border:1px solid #999999;
+	font-family:"Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+	font-size:12px;
+	text-decoration:none;
+	font-weight:bold;
+	color:#1C315D;
+	cursor:pointer;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	-khtml-border-radius:4px;
+	border-radius:4px;
+	width:50px;
+	
+	}
+
+html
+{
+	background-color:#FFF;
+}
+
+.table
+{
+	background-color:#FFC;
+	text-indent:2px;
+	border: 2px solid #FF0;
+}
+
+.input
+{
+	background-color:#FFC;
+	text-indent:2px;
+}
+
+.preview
+{
+	background-color:#F2F6F8;
+	text-indent:2px;
+	border: 2px solid #03F;
+}
+.preview2
+{
+	background-color:#F2F6F8;
+	text-indent:2px;
+}
+
+.blue
+{
+	background:#09F;
+	border: 2px solid #03F;
+	color:#FFF;
+	font-weight:bold;
+	cursor:pointer;
+}
+
+.red
+{
+	background:#F30;
+	border: 2px solid #F00;
+	color:#FFF;
+	font-weight:bold;
+	cursor:pointer;
+}
+
+.orange
+{
+	background:orange;
+	border: 2px solid #F60;
+	color:#FFF;
+	font-weight:bold;
+	cursor:pointer;
+}
+
+.green
+{
+	background:#4AA02C;
+	border: 2px solid #254117;
+	color:#FFF;
+	font-weight:bold;
+	cursor:pointer;
+}
+
+.judul
+{
+	font-size:20px;
+	font-weight:bold;
+	margin-bottom:20px;
+	text-align:center;
+	margin-top:10px;
+}
+
+.img
+{
+	float:left;
+	top:10px;
+	right:10px;
+}
+
+option
+{
+	width:180px;
+}
+
+.tblform
+{
+	background-color:#ffffcc;
+	margin:0 auto;
+}

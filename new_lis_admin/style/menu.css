@@ -1,0 +1,45 @@
+TD {
+	FONT-SIZE: 15px; COLOR: #000000; FONT-FAMILY: Arial; TEXT-DECORATION: none
+}
+TD.backB {
+	BACKGROUND-COLOR: #dffcff
+}
+TD.backG {
+	BACKGROUND-COLOR: #ccffcc
+}
+TD.backW {
+	BACKGROUND-COLOR: #ffffff
+}
+TD.borderB {
+	BACKGROUND-COLOR: #000080
+}
+TD.borderForm {
+	BACKGROUND-COLOR: #006699
+}
+TD.form1 {
+	BACKGROUND-COLOR: #d0d0d0
+}
+TD.form2 {
+	FONT-SIZE: 12px; BACKGROUND-COLOR: #FFFFFF; FONT-FAMILY: comic sans ms; TEXT-DECORATION: none;
+}
+BODY {
+	FONT-SIZE: 11px; COLOR: #000000; FONT-FAMILY: Verdana, Tahoma, Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+INPUT {
+	FONT-SIZE: 11px; COLOR: #000000; FONT-FAMILY: Verdana, Tahoma, Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+SELECT {
+	FONT-SIZE: 11px; COLOR: #000000; FONT-FAMILY: Verdana, Tahoma, Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+TEXTAREA {
+	FONT-SIZE: 11px; COLOR: #000000; FONT-FAMILY: Verdana, Tahoma, Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+A {
+	FONT-WEIGHT: bold; COLOR: #003366; TEXT-DECORATION: underline
+}
+A:visited {
+	FONT-WEIGHT: bold; COLOR: #003366; TEXT-DECORATION: underline
+}
+A:hover {
+	FONT-WEIGHT: bold; COLOR: #ff0000; TEXT-DECORATION: none
+}

@@ -1,0 +1,115 @@
+html,table,body,tr,td,div,input,textarea
+{
+	font-family:"Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+	font-size:12px;
+}
+
+.pagebreak{
+	page-break-after: always;
+}
+
+.divcenter
+{
+	text-align:center;
+}
+.button{
+background-color:blue;
+color:#FFF;
+cursor:pointer;
+text-decoration:none;
+cursor:pointer;
+-moz-border-radius:4px;
+-webkit-border-radius:4px;
+-khtml-border-radius:4px;
+border-radius:4px;
+width:50px;
+}
+
+
+.buttonsaveflow{
+background-color:blue;
+color:#FFF;
+cursor:pointer;
+text-decoration:none;
+cursor:pointer;
+width:300px;
+-moz-border-radius:4px;
+-webkit-border-radius:4px;
+-khtml-border-radius:4px;
+border-radius:4px;
+
+}
+.preview2
+{
+	background-color:#F2F6F8;
+	text-indent:2px;
+}
+.buttonneg{
+background-color:red;
+color:#FFF;
+cursor:pointer;
+text-decoration:none;
+cursor:pointer;
+-moz-border-radius:4px;
+-webkit-border-radius:4px;
+-khtml-border-radius:4px;
+border-radius:4px;
+width:50px;
+}
+
+	
+	
+.tbl100
+{
+	width:100%;
+}
+
+
+.1px
+{
+	width:1px;
+}
+
+.textnumber
+{
+	text-align:right;
+}
+
+.tdpadding
+{
+	padding:0px 5px 0px 5px;
+}
+
+#tblpreview
+{
+	background-color:#F2F6F8;
+	text-indent:2px;
+	border: 2px solid #03F;
+}
+
+#tblform
+{
+	background-color:#ffffcc;
+	margin:0 auto;
+}
+
+.nonmandatory
+{
+	background-color:#ffffff;
+}
+
+textarea
+{
+	background-color:#ffff00;
+	font-family:"Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+	font-size:12px;
+}
+
+
+input,select
+{
+	background-color:#ffff00;
+	font-size:12px;
+	font-family:"Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+	width:100%;
+}

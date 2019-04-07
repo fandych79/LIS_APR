@@ -1,0 +1,336 @@
+/* greenyours.net*//* Cascading Style Sheet *//* DataGrid style */
+html {
+  scrollbar-face-color: #a6c5f4;
+  scrollbar-shadow-color: #a6c5f4;
+  scrollbar-highlight-color: #eff8f7;
+  scrollbar-3dlight-color: #a6c5f4;
+  scrollbar-darkshadow-color: #a6c5f4;
+  scrollbar-track-color: #eff8f7;
+  scrollbar-arrow-color: #000000;
+}
+
+.dataGridTitle {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.pagerTblList {
+  font: 11px Verdana, Arial, sans-serif;
+  color: #ffffff;
+  background-color: #4c89b8;
+  text-align: right;
+  font-weight: bold;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.headerTblList {
+  font: 11px Verdana, Arial, sans-serif !important;
+  color: #ffffff !important;
+  background-color: #4c89b8 !important;
+  text-align: center !important;
+  font-weight: bold !important;
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+  white-space: nowrap !important;
+}
+
+.dtgHeaderStyle {
+  font-family: verdana;
+  font-size: .7em;
+  font-weight: bold;
+  color: White;
+  height: 25px;
+  border-top: gainsboro 1px solid;
+  background-color: SteelBlue;
+}
+
+.dtgFooterStyle {
+  font-family: verdana;
+  font-size: .7em;
+  font-weight: bold;
+  color: White;
+  height: 25px;
+  border-top: gainsboro 1px solid;
+  background-color: SteelBlue;
+}
+
+.dtgItemStyle {
+  font-family: verdana;
+  font-size: .7em;
+  color: #E3EAEB;
+  height: 25px;
+  border-top: gainsboro 1px solid;
+  background-color: #E3EAEB;
+}
+
+.dtgAlternateItemStyle {
+  font-family: verdana;
+  font-size: .7em;
+  color: White;
+  height: 25px;
+  border-top: gainsboro 1px solid;
+  background-color: White;
+}
+
+.itemTblList, .itemTblList table tr td {
+  font: 11px Verdana, Arial, sans-serif;
+  color: #105179;
+  background-color: #f2f7fd;
+  text-align: center;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.altItemTblList, .altItemTblList table tr td {
+  font: 11px Verdana, Arial, sans-serif;
+  color: #105179;
+  background-color: #c7dff7;
+  text-align: center;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.selItemTblList, .selItemTblList table tr td {
+  font: 11px Verdana, Arial, sans-serif;
+  color: #105179;
+/*font-weight: bold;*/
+  background-color: #fefecb;
+  text-align: center;
+  padding-left: 8px;
+  padding-right: 8px;
+  height: 27px;
+}
+/* Action Button */
+
+a.action:link, a.action:visited {
+  background-color: #c3cdd8;
+  color: #000000;
+  text-decoration: none;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+a.action:hover {
+  background-color: #000000;
+  color: #d5dce2;
+}
+
+.hyp {
+  text-decoration: none;
+  cursor: pointer;
+  color: #003572;
+}
+/* Right Pane */
+
+td.homepage-rightpane {
+  background-color: #e1e1e1;
+}
+/* Button Toolbar */
+
+input.buttonToolbar {
+  font: 12px verdana;
+}
+/* Search Filter Title */
+
+.searchFilterTitle {
+  font-size: 12px;
+}
+/* Gambar Phone */
+
+.glyph {
+  font-size: 16px! important;
+  font-family: wingdings;
+}
+/* Required */
+
+.required {
+  font: 11px Verdana, Arial, sans-serif;
+  color: #ff0000 !important;
+}
+/* Title */
+
+.title {
+  color: #ffffff;
+}
+/* Change Password (body element) */
+
+body.changePwd {
+  margin: 10px;
+}
+/* Error & Success Message */
+
+.errorMsg {
+  font: 11px Verdana, Arial, sans-serif;
+  color: #ff0066;
+  font-weight: bold;
+}
+
+.dataEmptyMsg {
+  font: 11px Verdana, Arial, sans-serif;
+  color: Orange;
+}
+
+.successMsg {
+  font: 11px Verdana, Arial, sans-serif;
+  color: #669933;
+  font-weight: bold;
+}
+/* Not Authorized */
+
+.tblNotAuthorized {
+  border: 1px solid #000000;
+  background-color: #ffcaa6;
+}
+
+.bodyNotAuthorized {
+  font: 12px Verdana, Arial, sans-serif;
+  color: #000000;
+}
+
+h2 {
+  font: 16px Verdana, Arial, sans-serif;
+  font-weight: bold;
+  color: #105179;
+}
+/* Web Part Form Title */
+
+span.wpFormTitle, p.wpFormTitle {
+  font: 14px Verdana, Arial, sans-serif;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+td.wpFormTitle {
+  padding: 4px;
+  background-color: #fe9900;
+}
+/* Panel */
+
+.panelTitle {
+  font: 12px Arial;
+  font-weight: bold;
+  vertical-align: middle;
+}
+
+.panel {
+  border-bottom: 1px solid #A5B5C6;
+}
+
+.groupPanel {
+  border-left: 1px solid #A5B5C6;
+  border-right: 1px solid #A5B5C6;
+  border-top: 1px solid #A5B5C6;
+  border-bottom: 1px solid #A5B5C6;
+  padding: 7px;
+  background-color: #eff8f7;
+}
+
+.groupPanel3 {
+  border-left: 1px solid #A5B5C6;
+  border-right: 1px solid #A5B5C6;
+  border-top: 1px solid #A5B5C6;
+  border-bottom: 1px solid #A5B5C6;
+  background-color: White;
+}
+
+.tdCalculation {
+  background-color: #facca5;
+}
+
+.tdCalculationInput {
+  background-color: #eedac9;
+}
+
+.groupPanelInsertAt {
+  border-left: 1px solid #A5B5C6;
+  border-right: 1px solid #A5B5C6;
+  border-top: 1px solid #A5B5C6;
+  border-bottom: 1px solid #A5B5C6;
+  padding: 7px;
+  background-color: #facca5;
+  width: 200px;
+}
+
+.groupPanel2 {
+  border-left: 1px solid #A5B5C6;
+  border-right: 1px solid #A5B5C6;
+  border-top: 1px solid #A5B5C6;
+  border-bottom: 1px solid #A5B5C6;
+  padding: 7px;
+  background-color: #ffdab9;
+  width: 100%;
+}
+/* Total Record */
+
+.totalRecord {
+  font-family: verdana;
+  font-size: 1em;
+  font-weight: normal;
+  color: #000000;
+}
+/* Info Panel Title */
+
+.infoPanelTitle {
+  font-weight: bold;
+}
+/* Form element */
+
+input {
+  font: 11px Verdana, Arial, sans-serif;
+}
+
+textarea {
+  font: 11px Verdana, Arial, sans-serif;
+}
+
+select {
+  font: 11px Verdana, Arial, sans-serif;
+}
+
+.ms-formbody{
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: .7em;
+  font-weight: normal;
+  color: #003572;
+  height: 25px;
+  border-top: gainsboro 1px solid;
+}
+
+.ms-formlabel{
+  font-family: verdana;
+  font-size: .7em;
+  font-weight: normal;
+  color: #808080;
+  height: 25px;
+  border-top: gainsboro 1px solid;
+}
+
+.ms-formlabel-header{
+  font-family: verdana;
+  font-size: .7em;
+  font-weight: normal;
+  color: #808080;
+  height: 25px;
+  border-top: gainsboro 1px solid;
+  background-color: lightgrey;
+}
+/* r */
+
+.warning{
+  border: solid 1px #FF8000;
+  background-color: #FFFFC0;
+  padding: 1px 1px 1px 1px;
+  width: 100%;
+}
+
+.errsign{
+  color: #ff0000 !important;
+}
+
+span{
+  color: #004e8c !important;
+}

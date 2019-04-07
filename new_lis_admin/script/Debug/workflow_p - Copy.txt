@@ -1,0 +1,23 @@
+<workflow name="WORKFLOW PARALLELL">
+<flow id="FAK" name="Form Applikasi Kredit" sequence="100" score="1000" previous="000" action="I" flag="YNNNN" product="KK" ></flow>
+<flow id="RPT" name="Reporting" sequence="300" score="1000" previous="BIC|RATE|AKKI|KPNO|MOST" action="CA" flag="flag" product="KK" ></flow>
+<flow id="SKE" name="Sketchering" sequence="350" score="1000" previous="RPT" action="CA" flag="flag" product="KK" ></flow>
+<flow id="COL" name="Collateral" sequence="400" score="1000" previous="SKE" action="IA" flag="flag" product="KK" ></flow>
+<flow id="SET" name="Setting Up" sequence="500" score="1000" previous="COL" action="CA" flag="flag" product="KK" ></flow>
+<flow id="HRD" name="Human Resource" sequence="600" score="1000" previous="SET" action="CA" flag="YNNYN" product="KK" ></flow>
+
+<flow id="JKT1" name="Jakarta1" sequence="700" score="1000" previous="HRD" action="IA" flag="flag" product="KK" ></flow>
+<flow id="JKT2" name="Jakarta2" sequence="800" score="1000" previous="JKT1" action="IA" flag="flag" product="KK" ></flow>
+
+<flow id="SBY1" name="Surabaya1" sequence="700" score="1000" previous="HRD" action="IA" flag="flag" product="KK" ></flow>
+<flow id="SBY2" name="Surabaya2" sequence="800" score="1000" previous="SBY1" action="C" flag="flag" product="KK" ></flow>
+
+<flow id="LOOP" name="Central Looping" sequence="900" score="1000" previous="JKT2|SBY2" action="IA" flag="flag" product="KK" ></flow>
+<flow id="PAY" name="Pay Day" sequence="1000" score="1000" previous="LOOP" action="A" flag="flag" product="KK" ></flow>
+
+<flow id="BIC" name="BI Checking" sequence="200" score="1000" previous="FAK" action="CA" flag="YNNNN" product="KK" ></flow>
+<flow id="RATE" name="Rating" sequence="200" score="1000" previous="FAK" action="IA" flag="flag" product="KK" ></flow>
+<flow id="AKKI" name="Assosiasi KK" sequence="200" score="1000" previous="FAK" action="C" flag="flag" product="KK" ></flow>
+<flow id="KPNO" name="Central Checking" sequence="200" score="1000" previous="FAK" action="IA" flag="flag" product="KK" ></flow>
+<flow id="MOST" name="Most Wanted" sequence="200" score="1000" previous="FAK" action="IA" flag="flag" product="KK" ></flow>
+</workflow>
