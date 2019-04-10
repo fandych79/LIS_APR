@@ -340,7 +340,8 @@ $yearcurrent = date("Y");
                             }
 
 
-                            if($cust_jeniscol=="BA1" || $cust_jeniscol=="RUK" || $cust_jeniscol=="KI2" || $cust_jeniscol=="TAN" || $cust_jeniscol=="V01" )
+                            //if($cust_jeniscol=="BA1" || $cust_jeniscol=="RUK" || $cust_jeniscol=="KI2" || $cust_jeniscol=="TAN" || $cust_jeniscol=="V01" )
+								if(1)
                             {
 
   $custcif = "";
@@ -401,7 +402,6 @@ $linkdmV = $ipdm. '/external_view2.php?dmuserid=' . $userdm . '&username=user&us
 ?>
                             
                         </div>
-                    <!---->
                     </td>
                 </tr>
             </table>

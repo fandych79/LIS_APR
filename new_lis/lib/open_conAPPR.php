@@ -9,6 +9,6 @@ $conn = sqlsrv_connect( $serverName, $connectionOptions);
 if( $conn === false )
 die( FormatErrors( sqlsrv_errors() ));
 
-$ipdm="192.168.1.113";
+$ipdm="127.0.0.1";
 $confmsg = "Are you sure?";
 ?>
