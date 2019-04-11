@@ -21,7 +21,7 @@
 		}
 	}
 	
-	if($appjenis == "V01")
+	if($appjenis == "V01" || $appjenis == "V02" || $appjenis == "V03" || $appjenis == "V04")
 	{
 		$strsqlv01="SELECT * FROM appraisal_vhc WHERE _collateral_id = '$theid'";
 		//echo $strsqlv01;
@@ -72,7 +72,7 @@
 			}
 		}
 	}
-	else if($appjenis=="BA1" || $appjenis=="RUK" || $appjenis=="KI2")
+	else if($appjenis == "BA2" || $appjenis == "BA3" || $appjenis == "KI2" || $appjenis == "KI3" || $appjenis == "KI4")
 	{
 		$strsqlv01="SELECT * FROM appraisal_tnb WHERE _collateral_id = '$theid'";
 		//echo $strsqlv01;
@@ -139,7 +139,7 @@
 			}
 		}
 	}
-	else if($appjenis=="TAN")
+	else if($appjenis == "TN1" || $appjenis == "TAN" || $appjenis == "TPR")
 	{
 		$strsqlv01="SELECT * FROM appraisal_lnd WHERE _collateral_id = '$theid'";
 		//echo $strsqlv01;

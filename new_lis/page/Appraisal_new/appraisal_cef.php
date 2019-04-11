@@ -99,4 +99,6 @@ echo "<hr>";
  //print_r($_POST);
  
  
+ 
+ 
  header("Location:appraisal.php?custnomid=$custnomid&userwfid=$userwfid&userpermission=$userpermission&buttonaction=$buttonaction&userbranch=$userbranch&userregion=$userregion&userid=$userid&userpwd=$userpwd&jeniscol=$col_code&col_id=$theid");

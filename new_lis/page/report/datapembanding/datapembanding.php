@@ -4,10 +4,9 @@
 	require ("../../../requirepage/parameter.php");
 	
 	$col_id="";
-    $tsql = "select top 1 *
+    $tsql = "select  *
             from Tbl_Cust_MasterCol 
             where ap_lisregno = '".$custnomid."' 
-            and group_col = 'N' 
             and flaginsert = '1' 
             and flagdelete = '0'
             order by inserttime asc;
@@ -205,13 +204,12 @@
 						$cust_jeniscol="";
 						$url = "./datapembanding.php?custnomid=$custnomid&userwfid=$userwfid&userpermission=$userpermission&buttonaction=$buttonaction&userbranch=$userbranch&userregion=$userregion&userid=$userid&userpwd=$userpwd";
 						$tsql = "select *,
-								case when cust_jeniscol='BA1' then 'Tanah dan Bangunan'
+								case when cust_jeniscol='BA2' OR cust_jeniscol='BA3' then 'Bangunan'
 								when cust_jeniscol='RUK' then 'Ruko'
 								when cust_jeniscol='KI2' then 'Kios'
-								when cust_jeniscol='TAN' then 'Tanah'
+								when cust_jeniscol='TAN' OR cust_jeniscol='TN1' then 'Tanah'
 								when cust_jeniscol='V01' then 'Kendaraan' else 'Lainnya' end 'jenis_col' from Tbl_Cust_MasterCol 
 								where ap_lisregno = '".$custnomid."' 
-								and group_col = 'N' 
 								and flaginsert = '1' 
 								and flagdelete = '0'
 								order by inserttime asc;
@@ -244,15 +242,15 @@
 									$cust_jeniscol = $row['cust_jeniscol'];
 								}
 								
-								if($cust_jeniscol1=="BA1" || $cust_jeniscol1=="RUK" || $cust_jeniscol1=="KI2" )
+								if($cust_jeniscol1=="BA2" || $cust_jeniscol1=="BA3" || $cust_jeniscol1=="KI2" || $cust_jeniscol1=="KI3" || $cust_jeniscol1=="KI4")
 								{
 									$strsql="select  * from appraisal_tnb where _collateral_id='".$row['col_id']."'";
 								}
-								elseif($cust_jeniscol1=="TAN")
+								elseif($cust_jeniscol1=="TAN" || $cust_jeniscol1=="TN1" || $cust_jeniscol1=="TPR")
 								{
 									$strsql="select  * from appraisal_lnd where _collateral_id='".$row['col_id']."'";
 								}
-								elseif($cust_jeniscol1=="V01")
+								elseif($cust_jeniscol1=="V01" || $cust_jeniscol1=="V02" || $cust_jeniscol1=="V03" || $cust_jeniscol1=="V04")
 								{
 									$strsql="select  * from appraisal_vhc where _collateral_id='".$row['col_id']."'";
 								}

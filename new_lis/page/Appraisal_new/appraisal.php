@@ -60,7 +60,7 @@ $list_type = $rows['_cust_listype'];
 }
 }
 
-if ($appjenis == "V01") {
+if ($appjenis == "V01" || $appjenis == "V02" || $appjenis == "V03" || $appjenis == "V04") {
 $_col_vhc = "";
 $strsqlv01 = "SELECT * FROM appraisal_vhc WHERE _collateral_id = '$theid'";
 //echo $strsqlv01;
@@ -107,7 +107,7 @@ $value_opini = $rowsv01['_opini'];
 $value_jml = $rowsv01['jml'];
 }
 }
-} else if ($appjenis == "BA1" || $appjenis == "RUK" || $appjenis == "KI2") {
+} else if ($appjenis == "BA2" || $appjenis == "BA3" || $appjenis == "KI2" || $appjenis == "KI3" || $appjenis == "KI4") {
 $v_sertifikat = "";
 $v_imb = "";
 $_col_tnb = "";
@@ -172,7 +172,7 @@ $_nilai_total_cef_agunan = $rowsv01['_nilai_total_cef_agunan'];
 $luas_bangunan = $rowsv01['_luas_bangunan'];
 }
 }
-} else if ($appjenis == "TAN") {
+} else if ($appjenis == "TN1" || $appjenis == "TAN" || $appjenis == "TPR") {
 $_col_tan = "";
 $strsqlv01 = "SELECT * FROM appraisal_lnd WHERE _collateral_id = '$theid'";
 //echo $strsqlv01;
@@ -339,7 +339,7 @@ if (sqlsrv_has_rows($sqlconv01)) {
         //V01
 
 
-        if ($appjenis == "V01") {
+        if ($appjenis == "V01" || $appjenis == "V02" || $appjenis == "V03" || $appjenis == "V04") {
             ?>
                                     <table class="tbl100">
                                         <tr>
@@ -461,7 +461,7 @@ if (sqlsrv_has_rows($sqlconv01)) {
                                         </tr>
                                     </table>
             <?php
-        } else if ($appjenis == "BA1" || $appjenis == "RUK" || $appjenis == "KI2") {
+        } else if ($appjenis == "BA2" || $appjenis == "BA3" || $appjenis == "KI2" || $appjenis == "KI3" || $appjenis == "KI4") {
             ?>
 
                                     <!--tanah dan bangunan -->
@@ -592,7 +592,7 @@ if (sqlsrv_has_rows($sqlconv01)) {
                                     </table>
 
             <?php
-        } else if ($appjenis == "TAN") {
+        } else if ($appjenis == "TN1" || $appjenis == "TAN" || $appjenis == "TPR") {
             ?>
 
                                     <!--
@@ -731,7 +731,7 @@ if (sqlsrv_has_rows($sqlconv01)) {
                                         </tr>
                                        
                                         <tr>
-                                            <td style="width:100px;">NIlai Jaminan</td>
+                                            <td style="width:100px;">Nilai Jaminan</td>
                                             <td style="width:10px;">: </td>
 											<td>
 											<input  type="text" onblur="hitung(this.id)" id="nilai_jaminan" name="nilai_jaminan" maxlength="20" value="<?php echo number_format($nilai_jaminan);?>" onkeypress="return isNumberKey(event)" onkeydown="return numbersonly(this, event);" required/> 
@@ -852,12 +852,21 @@ if (sqlsrv_has_rows($sqlconv01)) {
                 
 
                 require ("../../requirepage/hiddenfield.php");
+				
+				
                 }
                 require("../../requirepage/btnprint.php");
                 ?>
                 <input type="hidden" id="theid" name="theid"/>
                 <input type="hidden" id="thecolid" name="thecolid"/>
         </form>
+		
+		<form method="POST" action="safe_vlow.php">
+		<?
+        require ("../../requirepage/hiddenfield.php");
+		?>
+		<button type="submit" value="submit" style="background-color:blue;color:white;">Submit Flow</button>
+		</form>
 		
 		<?
 				require("../../requirepage/backtoflow.php");
