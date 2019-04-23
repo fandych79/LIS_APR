@@ -224,7 +224,7 @@ $value_op = $rowsv01['_opini'];
            
         </script>
     </head>
-    <body style="margin:0;">
+    <body style="margin:0;" onload="hitung('nilai_jaminan')">
         <div style="padding:0px;margin:0px;"><img src="../../images/header_lis2.jpg"></img></div>
         <br><br><br>
         <form id="frm" name="frm" method="post" action="appraisal_cef.php">
@@ -232,7 +232,7 @@ $value_op = $rowsv01['_opini'];
                 <table id="tblform" border="1" style="width:900px; border-color:black;" cellspacing="0">
                     <tr>
                         <td colspan="2">
-                            <table>
+                            <table border="0">
                                 <tr>
                                     <td>&nbsp;</td>
                                     <td>&nbsp;</td>
@@ -241,12 +241,16 @@ $value_op = $rowsv01['_opini'];
                                     <td>&nbsp;</td>
                                     <td><h3>FORM ENTRY APPRAISAL VALUE (<? echo $custnomid ?>) </h3></td>
                                 </tr>
+								<tr>
+                                    <td>&nbsp;</td>
+                                    <td><a href="../flow.php?&userwfid=<?= $userwfid ?>&userpermission=<?= $userpermission ?>&buttonaction=<?= $buttonaction ?>&userbranch=<?= $userbranch ?>&userregion=<?= $userregion ?>&userid=<?= $userid ?>&userpwd=<?= $userpwd ?>">back to flow</a></td>
+								</tr>
                             </table>
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2" align="center">
-                            <table>
+                            <table border="0">
                                 <tr>
 <?php
 $strsqlv01 = "select * from Tbl_Cust_MasterCol a
@@ -290,7 +294,7 @@ if (sqlsrv_has_rows($sqlconv01)) {
 
                         ?>
                         <tr>
-                            <td colspan="2" align="left" style="padding-left:400px;">
+                            <td colspan="2">
                                 <?
                                 $deskripsi="";
 	$tglkunjungan="";
@@ -306,23 +310,25 @@ if (sqlsrv_has_rows($sqlconv01)) {
 	if ( $sqlconv01 === false)die( FormatErrors( sqlsrv_errors() ) );
 	if(sqlsrv_has_rows($sqlconv01))
 	{
-		if($rowsv01 = sqlsrv_fetch_array($sqlconv01, SQLSRV_FETCH_ASSOC))
+		while($rowsv01 = sqlsrv_fetch_array($sqlconv01, SQLSRV_FETCH_ASSOC))
 		{
 			$id=$rowsv01['id'];
 			$custnomid=$rowsv01['custnomid'];
 			$col_code=$rowsv01['col_code'];
-			 $col_id=$rowsv01['col_id'];
+			$col_id=$rowsv01['col_id'];
 			$deskripsi=$rowsv01['deskripsi'];
 			$tglkunjungan=$rowsv01['tglkunjungan'];
 			$harga1=$rowsv01['harga1'];
 			$harga2=$rowsv01['harga2'];
-			echo "Harga 1 = ".number_format($harga2);
-			echo "<br>";
-			echo "Harga 2 = ".number_format($harga2);
+			//echo "Harga 1 = ".number_format($harga1);
+			//echo "<br>";
+			//echo "Harga 2 = ".number_format($harga2);
 			$officer=$rowsv01['officer'];
 			$keterangan=$rowsv01['keterangan'];
 			$cretedate="asd";
 			$creteby=$rowsv01['creteby'];
+			
+			include("box_compare_data.php");
 
 		}
 	}
@@ -692,7 +698,7 @@ if (sqlsrv_has_rows($sqlconv01)) {
 								function hitung(id) {
 									var col_cef=  <?=$col_cef?>;
 									var newStr = $("#"+id).val().replace(/,/g, '');
-									 perhitungan= col_cef/100*newStr;
+									 perhitungan= col_cef / 100 * newStr;
 									
 									$("#nominalcef").val(accounting.formatMoney(perhitungan));
 									$("#nominalcef2").html(accounting.formatMoney(perhitungan));
@@ -747,7 +753,7 @@ if (sqlsrv_has_rows($sqlconv01)) {
                                             <td>nilai cef</td>
                                             <td>:</td>
 											<td> 
-												<div id="nominalcef2"><?=number_format($nilai_cef)?></div>
+												<div id="nominalcef2"><?=number_format($col_cef / 100 * $nilai_jaminan) ;?></div>
 												<input  type="hidden" id="nominalcef" name="nominalcef" readonly = "readonly" value="<??>"/> 
 												<input  type="hidden" id="col_id" name="col_id" value="<?=$theid?>"/> 
 												<input  type="hidden" id="col_code" name="col_code" value="<?=$appjenis?>"/> 
@@ -766,7 +772,7 @@ if (sqlsrv_has_rows($sqlconv01)) {
 											while($x <=$maxofficer)
 										{
 											$off = "";
-											$strsqlv02="SELECT * FROM appraisal_officer where col_id = '$theid' and seq = '$x'";
+											$strsqlv02="SELECT * FROM appraisal_officer where custnom_id = '$custnomid' and seq = '$x'";
 											$sqlconv02 = sqlsrv_query($conn, $strsqlv02);
 											if ( $sqlconv02 === false)die( FormatErrors( sqlsrv_errors() ) );
 											if(sqlsrv_has_rows($sqlconv02))
@@ -785,13 +791,27 @@ if (sqlsrv_has_rows($sqlconv01)) {
 											<?php
 //											$strsqlv01="SELECT * FROM appraisal_paramofficer";
 
-											   $strsqlv01="select tbl_se_user.user_id,tbl_se_user.user_name,tbl_se_user.user_branch_code, tbl_branch.branch_region_code
-			                              from tbl_se_user, tbl_branch 
-			                              where tbl_branch.branch_code=tbl_se_user.user_branch_code
-			                              AND tbl_se_user.user_level_code='160' 
-			                              AND tbl_se_user.user_id<>'$userid'
-										  AND tbl_se_user.user_branch_code = '$userbranch'
-			                              order by tbl_se_user.user_name";
+											if ($x == 1)
+											{
+												$strsqlv01="select tbl_se_user.user_id,tbl_se_user.user_name,tbl_se_user.user_branch_code, tbl_branch.branch_region_code
+												from tbl_se_user, tbl_branch 
+												where tbl_branch.branch_code=tbl_se_user.user_branch_code
+												AND tbl_se_user.user_level_code='160' 
+												AND tbl_se_user.user_id='$userid'
+												order by tbl_se_user.user_name";
+											}
+											else
+											{
+												echo "<option value=''>-Select-</option>";
+												$strsqlv01="select tbl_se_user.user_id,tbl_se_user.user_name,tbl_se_user.user_branch_code, tbl_branch.branch_region_code
+												from tbl_se_user, tbl_branch 
+												where tbl_branch.branch_code=tbl_se_user.user_branch_code
+												AND tbl_se_user.user_level_code='160' 
+												AND tbl_se_user.user_id<>'$userid'
+												AND tbl_se_user.user_branch_code = '$userbranch'
+												order by tbl_se_user.user_name";
+											}
+										  
                       
 											$sqlconv01 = sqlsrv_query($conn, $strsqlv01);
 											if ( $sqlconv01 === false)die( FormatErrors( sqlsrv_errors() ) );
@@ -809,6 +829,9 @@ if (sqlsrv_has_rows($sqlconv01)) {
 											}
 											?>
 											</select>
+											
+											
+										  <?//=$strsqlv01;?>
 										</td>
 									</tr>
 									<?

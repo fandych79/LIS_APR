@@ -6,13 +6,19 @@
 	$maxofficer = 5;
 	$x = 1;
 
-	$thesignstatus	 = $_POST['thesignstatus'];
-	$theid = $_POST['thecolid'];
+	$thesignstatus = $_POST['offiger_sign_stat'];
+	$theid = $_POST['officer_custnomid'];
 	//echo $custnomid;exit;
+	
+	echo "<pre>";
+	print_r($_REQUEST);
+	echo "</pre>";
+	echo "THE SIGN STATUS : ".$thesignstatus;
+	//exit;
 
 	if ($thesignstatus == "UNSIGN")
 	{
-	   $strsql = "UPDATE appraisal_officer SET flag = '' WHERE col_id = '$theid'";
+	   $strsql = "UPDATE appraisal_officer SET flag = '' WHERE custnom_id = '$theid'";
 	   //echo $strsql;exit;
 	   $stmt = sqlsrv_prepare( $conn, $strsql);
 	   if(!$stmt)
@@ -28,7 +34,7 @@
 	   sqlsrv_free_stmt( $stmt);
 
       $officerid = "";
-			$strsqlv01="SELECT * FROM appraisal_officer WHERE col_id = '$theid' AND seq = '1'";
+			$strsqlv01="SELECT * FROM appraisal_officer WHERE custnom_id = '$theid' AND seq = '1'";
 			$sqlconv01 = sqlsrv_query($conn, $strsqlv01);
 			if ( $sqlconv01 === false)die( FormatErrors( sqlsrv_errors() ) );
 			if(sqlsrv_has_rows($sqlconv01))
@@ -106,7 +112,7 @@
 	
 	if ($thesignstatus == "SIGN")
 	{
-	   $strsql = "UPDATE appraisal_officer SET flag = 'S' WHERE col_id = '$theid' AND officer_id = '$userid'";
+	   $strsql = "UPDATE appraisal_officer SET flag = 'S' WHERE custnom_id = '$theid' AND officer_id = '$userid'";
 	   //echo $strsql;exit;
 	   $stmt = sqlsrv_prepare( $conn, $strsql);
 	   if(!$stmt)
@@ -122,7 +128,7 @@
 	   sqlsrv_free_stmt( $stmt);
 
       $officerid = "";
-			$strsqlv01="SELECT * FROM appraisal_officer WHERE col_id = '$theid' AND officer_id <> '$userid'";
+			$strsqlv01="SELECT * FROM appraisal_officer WHERE custnom_id = '$theid' AND officer_id <> '$userid'";
 			$sqlconv01 = sqlsrv_query($conn, $strsqlv01);
 			if ( $sqlconv01 === false)die( FormatErrors( sqlsrv_errors() ) );
 			if(sqlsrv_has_rows($sqlconv01))
@@ -152,7 +158,9 @@
 			}
 	}
 
+
 ?>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
@@ -161,8 +169,8 @@
 		
 		function iniload()
 		{
-			document.formappl.theid.value="<?php echo $theid?>";
-			document.formappl.action = "../flow.php?userwfid=<?php echo $userwfid?>";
+			document.formappl.theid.value="<?=$theid?>";
+			document.formappl.action = "../flow.php?userwfid=<?=$userwfid;?>";
 			document.formappl.submit();
 		}
 		

@@ -54,10 +54,17 @@
 		<br><br><br>
 		<form id="frm" name="frm" method="post">
 			<div class="divcenter">
+			
+				
+				
 				<table border="1" style ="width:900px; border-color:black;" align="center" id="tblpreview">
-					
+					<tr>
+						<td colspan="2"><a href="../flow.php?&userwfid=<?= $userwfid ?>&userpermission=<?= $userpermission ?>&buttonaction=<?= $buttonaction ?>&userbranch=<?= $userbranch ?>&userregion=<?= $userregion ?>&userid=<?= $userid ?>&userpwd=<?= $userpwd ?>">back to flow</a></td>
+					</tr>
+	
 					<tr>
 						<td align="center" colspan="2" style="font-size:12pt;">
+						
 							
 							<div align="left" style="padding:20px;">
 							

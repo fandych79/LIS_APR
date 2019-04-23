@@ -108,13 +108,16 @@
 						<td align="center" colspan="2" style="font-size:14pt;height:70px;">DATA PEMBANDING</td>
 					</tr>
 					<tr>
+						<td colspan="2" style="padding: 5px;"><a href="../flow.php?&userwfid=<?= $userwfid ?>&userpermission=<?= $userpermission ?>&buttonaction=<?= $buttonaction ?>&userbranch=<?= $userbranch ?>&userregion=<?= $userregion ?>&userid=<?= $userid ?>&userpwd=<?= $userpwd ?>">back to flow</a></td>
+					</tr>
+					<tr>
 						<td align="center" colspan="2" style="font-size:12pt;">
 							<div align="left" style="padding-left:20px;padding-top:20px;">
 								<a href="datapembanding_act.php?custnomid=<?=$custnomid?>&userwfid=<?=$userwfid?>&userpermission=<?=$userpermission?>&buttonaction=<?=$buttonaction?>&userbranch=<?=$userbranch?>&userregion=<?=$userregion?>&userid=<?=$userid?>&userpwd=<?=$userpwd?>"><img src="../../bin/img/add_new.png" style="width:30px;"/> Tambah data pembanding</a> <hr>
 							
 						
 							<div align="left" style="padding:20px;">
-							<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+							<table border="0" id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
 								<thead>
 									<tr>
 										<th style="width:200px">Collateral ID</th>

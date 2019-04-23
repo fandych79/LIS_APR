@@ -23,23 +23,23 @@
 		
 		if($off!="")
 		{
-			$strsqlv01="SELECT * FROM appraisal_officer where col_id = '$theid' and seq = '$x'";
+			$strsqlv01="SELECT * FROM appraisal_officer where custnom_id = '$custnomid' and seq = '$x'";
 			$sqlconv01 = sqlsrv_query($conn, $strsqlv01);
 			if ( $sqlconv01 === false)die( FormatErrors( sqlsrv_errors() ) );
 			if(sqlsrv_has_rows($sqlconv01))
 			{
-				$strsql = "update appraisal_officer set officer_id = '$off' where col_id = '$theid' and seq = '$x'";
+				$strsql = "update appraisal_officer set officer_id = '$off' where custnom_id = '$custnomid' and seq = '$x'";
 				$b = sqlsrv_query($conn, $strsql);
 			}
 			else
 			{
-				$strsql = "insert into appraisal_officer (col_id, officer_id, seq) values ('$theid', '$off', '$x')";
+				$strsql = "insert into appraisal_officer (custnom_id, officer_id, seq) values ('$custnomid', '$off', '$x')";
 				$b = sqlsrv_query($conn, $strsql);
 			}
 		}
 		else
 		{
-			$strsql = "delete from appraisal_officer where col_id = '$theid' and seq = '$x'";
+			$strsql = "delete from appraisal_officer where custnom_id = '$custnomid' and seq = '$x'";
 			$b = sqlsrv_query($conn, $strsql);
 		}
 		$x++;
