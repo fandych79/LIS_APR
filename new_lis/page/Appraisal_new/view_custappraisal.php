@@ -174,21 +174,19 @@ $luas_bangunan = $rowsv01['_luas_bangunan'];
 }
 } else if ($appjenis == "TN1" || $appjenis == "TAN" || $appjenis == "TPR") {
 $_col_tan = "";
-$strsqlv01 = "SELECT * FROM appraisal_lnd WHERE _collateral_id = '$theid'";
+$strsqlv01 = "SELECT * FROM appraisal_land WHERE _collateral_id = '$theid'";
 //echo $strsqlv01;
 $sqlconv01 = sqlsrv_query($conn, $strsqlv01);
 if ($sqlconv01 === false) die(FormatErrors(sqlsrv_errors()));
 if (sqlsrv_has_rows($sqlconv01)) {
 if ($rowsv01 = sqlsrv_fetch_array($sqlconv01, SQLSRV_FETCH_ASSOC)) {
-$v_luas_tnh = $rowsv01['_luas_tanah'];
-$v_pan_tnh = $rowsv01['_panjang_tanah'];
-$v_leb_tnh = $rowsv01['_lebar_tanah'];
-$v_utara = $rowsv01['_sisi_utara'];
-$v_timur = $rowsv01['_sisi_timur'];
-$v_selatan = $rowsv01['_sisi_selatan'];
-$v_barat = $rowsv01['_sisi_barat'];
-$v_lat = $rowsv01['_latitude'];
-$v_long = $rowsv01['_longitude'];
+$v_luas_tnh = $rowsv01['col_certluas'];
+$v_alamat = $rowsv01['col_addr1'];
+$v_kec_kel = $rowsv01['col_addr2'];
+$v_kot_kab = $rowsv01['col_addr3'];
+$v_kodepos = $rowsv01['col_kodepos'];
+$v_no_sert = $rowsv01['col_certno'];
+$v_nama_sert = $rowsv01['col_certatasnama'];
 $v_notes = $rowsv01['_notes'];
 $v_opini = $rowsv01['_opini'];
 }
@@ -508,7 +506,7 @@ if (sqlsrv_has_rows($sqlconv01)) {
                                     <!--tanah dan bangunan -->
                                     <table class="tbl100">
                                         <tr>
-                                            <td colspan="2"><h4>DATA TANAH DAN BANGUNAN</h4></td>
+                                            <td colspan="2"><h4>DATA BANGUNAN</h4></td>
                                         </tr>
                                         <tr>
                                             <td style="width:300px;">Type Jaminan</td>
@@ -648,59 +646,48 @@ if (sqlsrv_has_rows($sqlconv01)) {
                                             <td colspan="2"><h4>DATA TANAH</h4></td>
                                         </tr>
                                         <tr>
+                                            <td style="width:300px;">Alamat</td>
+                                            <td style="width:500px;">
+                                                : <?php echo $v_alamat; ?>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width:300px;">Kecamatan / Kelurahan</td>
+                                            <td style="width:500px;">
+                                                : <?php echo $v_kec_kel; ?>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width:300px;">Kota / Kabupaten</td>
+                                            <td style="width:500px;">
+                                                : <?php echo $v_kot_kab; ?>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width:300px;">Kodepos</td>
+                                            <td style="width:500px;">
+                                                : <?php echo $v_kodepos; ?>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width:300px;">Nomor Sertifikat</td>
+                                            <td style="width:500px;">
+                                                : <?php echo $v_no_sert; ?>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width:300px;">Pemegang Hak Atas Sertifikat</td>
+                                            <td style="width:500px;">
+                                                : <?php echo $v_nama_sert; ?>
+                                            </td>
+                                        </tr>
+                                        <tr>
                                             <td style="width:300px;">Luas Tanah</td>
                                             <td style="width:500px;">
                                                 : <?php echo $v_luas_tnh; ?>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td style="width:300px;">Panjang Tanah</td>
-                                            <td style="width:500px;">
-                                                : <?php echo $v_pan_tnh; ?>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td style="width:300px;">Lebar Tanah</td>
-                                            <td style="width:500px;">
-                                                : <?php echo $v_leb_tnh; ?>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td style="width:300px;">Sisi Utara</td>
-                                            <td style="width:500px;">
-                                                : <?php echo $v_utara; ?>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td style="width:300px;">Sisi Timur</td>
-                                            <td style="width:500px;">
-                                                : <?php echo $v_timur; ?>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td style="width:300px;">Sisi Selatan</td>
-                                            <td style="width:500px;">
-                                                : <?php echo $v_selatan; ?>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td style="width:300px;">Sisi Barat</td>
-                                            <td style="width:500px;">
-                                                : <?php echo $v_barat; ?>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td style="width:300px;">Latitude</td>
-                                            <td style="width:500px;">
-                                                : <?php echo $v_lat; ?>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td style="width:300px;">Longitude</td>
-                                            <td style="width:500px;">
-                                                : <?php echo $v_long; ?>
-                                            </td>
-                                        </tr>
+                                        
                                         <tr>
                                             <td style="width:300px;">Notes</td>
                                             <td style="width:500px;">

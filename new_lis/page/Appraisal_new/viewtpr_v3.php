@@ -1,7 +1,7 @@
 <?
 		
 
-		$tsqlland = "SELECT * FROM tbl_COL_Land where ap_lisregno = '$custnomid' and col_id like '$colid'";
+		$tsqlland = "SELECT * FROM appraisal_land where _collateral_id = '$colid'";
 		$aland = sqlsrv_query($conn, $tsqlland);
 
 		if ( $aland === false)
@@ -25,12 +25,12 @@
 			<tr>
 				<td width=40%>Application Number   </td>
 				<td width=10%>:</td>
-				<td width=50%><? echo $rowland['ap_lisregno'];?></td>				
+				<td width=50%><? echo $custnomid;?></td>				
 			</tr>
 			<tr>
 				<td width=40%>Collateral ID  </td>
 				<td width=10%>:</td>
-				<td width=50%><? echo $rowland['col_id'];?></td>				
+				<td width=50%><? echo $colid;?></td>				
 			</tr>
 			<tr>
 				<td width=40%>Alamat </td>
@@ -70,7 +70,7 @@
 			<tr>
 				<td width=40%>Luas Tanah   </td>
 				<td width=10%>:</td>
-				<td width=50%><? echo $rowland['col_certluas'];?></td>				
+				<td width=50%><? echo $rowland['col_certluas'];?> m2</td>				
 			</tr>
 			<!--<tr>
 				<td width=40%>Tanggal Terbit Sertifikat   </td>

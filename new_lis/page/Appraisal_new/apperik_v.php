@@ -296,7 +296,7 @@ $yearcurrent = date("Y");
 
                             if($type == "TAN" || $type == "TPR" || $type == "TN1")
                             {
-	                            require("eriklnd_v.php");
+	                            require("viewtpr_v3.php");
                             }
                             else if($type == "BA1" || $type == "BA2" || $type == "BA3")
                             {

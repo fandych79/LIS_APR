@@ -178,6 +178,7 @@ else
 			        from tbl_se_user, tbl_branch 
 			        where tbl_branch.branch_code=tbl_se_user.user_branch_code
 			        AND tbl_se_user.user_level_code='160' 
+					AND tbl_branch.branch_code = '$userbranch'
 			        order by tbl_se_user.user_name";
 			$cursorType = array("Scrollable" => SQLSRV_CURSOR_KEYSET);
 			$params = array(&$_POST['query']);
